@@ -1,0 +1,27 @@
+body {
+  margin: 0;                                          
+  font-family: Roboto, 'Segoe UI', Tahoma, sans-serif;      
+ 
+ 
+  
+}
+
+#root
+{
+  background-image: url("D:\PROJECT-2\rtms-1.0.0\public\img\LoginPageBackgroundImage.jpg");
+  background-repeat : no-repeat;
+  background-size: cover;
+  position: fixed;
+  top : 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  
+  
+
+}
+
+.AdminWindowSideBarOptionReturnDiv:hover
+{
+  background-color: rgb(35,41,54);
+}

@@ -1,0 +1,41 @@
+#AdminWindowHeaderReturnDiv
+{
+    font-size: 18px;
+    color: gray;
+    padding: 1%;
+    box-shadow:0px 1px 0 rgb(60 64 67 / 20%), 0 2px 3px 2px rgb(60 64 67 / 10%);
+    height: 55px
+    
+}
+
+#AdminWindowHeaderBarIcon{
+    font-size: 35px;
+    font-weight: 900;
+    color: rgb(35,41,54);
+    /* margin:1%; */
+    float :left;
+}
+
+.AdminWindowNavBarRightSideOption
+{
+    font-size:12px;
+    padding: 8px;
+   
+}
+#AdminWindowNavBarRightSideOptionDiv
+{
+    float: right;
+    display: flex;
+    padding-top:1% ;
+    padding-right: 2%;
+
+
+   
+       
+}
+
+#AdminWindowNavBarRightSideOptionDivProfileIcon , #AdminWindowNavBarRightSideOptionDivLogoutIcon
+{
+    padding-right:3px ;
+
+}

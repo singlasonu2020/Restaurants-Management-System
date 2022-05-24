@@ -1,0 +1,62 @@
+
+#LoginDivHeading
+{
+    font-size:24px;
+    padding:0;
+    float:left;
+    display: inline;
+}
+#lock {
+    color: black;
+}
+
+#LoginDiv {
+    background-color: white;
+    border-radius: 5px;
+
+    padding: 2%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    color: #6A737B;
+    text-align: left;
+
+}
+
+
+
+.LoginDivInsideDiv {
+    padding-top: 3%;
+    padding-bottom: 3%;
+}
+
+#LoginDivLoginButton
+{
+    padding-left: 7%;
+    padding-right: 7%;
+   float: left;
+
+}
+
+#LoginDivForgotButton
+{
+    float: right;
+    font-size:12px;
+    padding-top: 5%;
+    cursor: pointer;
+
+}
+#LoginDivClosePasswordIcon
+{
+    display:none;
+}
+
+#LoginDivLogo
+{
+    float:right;
+    display: inline;
+
+}
+
