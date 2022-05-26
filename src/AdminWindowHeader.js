@@ -20,6 +20,8 @@ function NavBar() {
       <h3 className = "AdminWindowNavBarRightSideOption">
         <FontAwesomeIcon icon={faSignOut} id="AdminWindowNavBarRightSideOptionDivLogoutIcon" />
         <span>Log out</span></h3>
+        <h3 className = "AdminWindowNavBarRightSideOption" style={{backgroundColor:"rgba(35, 41, 54, 0.8)",color:"white",padding:"8px 15px 8px 15px",borderRadius:"3px",marginLeft:"8px"}}>New Reservation</h3>
+
       </div>
       
     </div>

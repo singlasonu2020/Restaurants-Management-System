@@ -16,12 +16,15 @@ class SideBarOption extends React.Component {
         id={`AdminWindowSideBarOptionReturnDiv${this.props.Name}`}
         style={SideWindowOptionStyle}
         onClick={(e) => {
-          this.props.VariableForOpenOrNot = this.props.OnClickFunction(
+          this.props.OnClickFunction(
             this.props.Name,
             this.props.ArrayOfInsideItem
+          
           );
         }}
       >
+          
+
         <h3 style={{ fontSize: "14px", margin: 0, padding: 0 }}>
           <FontAwesomeIcon
             icon={this.props.Icon}

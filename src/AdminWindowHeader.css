@@ -20,13 +20,13 @@
 {
     font-size:12px;
     padding: 8px;
+    
    
 }
 #AdminWindowNavBarRightSideOptionDiv
 {
     float: right;
     display: flex;
-    padding-top:1% ;
     padding-right: 2%;
 
 

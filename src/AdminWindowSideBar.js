@@ -7,6 +7,7 @@ import { faCutlery } from "@fortawesome/free-solid-svg-icons";
 import { faAngleLeft } from "@fortawesome/free-solid-svg-icons";
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import WorkingTime from "./AdminWindowWorkingTime"
 
 function OnClickAnyWhereWhenSideBarIsOpen(e){
   console.log("hello");
@@ -47,7 +48,8 @@ function SideBar() {
           Icon={faList}
           InsideOptionIcon={faAngleLeft}
           OnClickFunction={OpenMoreOptionInsideOption}
-          ArrayOfInsideItem={[" New Reservation", "Reservations List"]}
+          ArrayOfInsideItem= {[{Name :" New Reservation" , OnClickFunctionPass :AdminSideBarOnClickOnWorkingTime}, {Name :"Reservations List" , OnClickFunctionPass:""}]}
+        
         />
         <div id="AdminWindowSideBarOptionReservationsOption"></div>
 
@@ -56,7 +58,8 @@ function SideBar() {
           Icon={faCutlery}
           InsideOptionIcon={faAngleLeft}
           OnClickFunction={OpenMoreOptionInsideOption}
-          ArrayOfInsideItem={["Working Time", "Restaurant Map"]}
+          ArrayOfInsideItem={[{Name :"Working Time" , OnClickFunctionPass :AdminSideBarOnClickOnWorkingTime}, {Name :"Restaurant Map" , OnClickFunctionPass:""}]}
+          
         />
         <div id="AdminWindowSideBarOptionRestaurantOption"></div>
       </div>
@@ -95,13 +98,13 @@ let SyleForAdminWindowSideBarOption = {
 let OpenOptionOfRestaurantValue = false;
 let OpenOptionOfReservationsValue = false;
 
-function OpenMoreOptionInsideOption(OnClickElement, ArrayOfInsideItem) {
-  console.log("hi from OpenMoreOptionInsideOption");
+function OpenMoreOptionInsideOption(OnClickElement, ArrayOfInsideItem ) {
+
   switch (OnClickElement) {
     case "Restaurant":
       if (!OpenOptionOfRestaurantValue) {
         CloseAllOtherOption();
-        OpenOptionOfRestaurantOn(OnClickElement, ArrayOfInsideItem);
+        OpenOptionOfRestaurantOn(OnClickElement, ArrayOfInsideItem );
         OpenOptionOfRestaurantValue = true;
         
       } else {
@@ -124,12 +127,14 @@ function OpenMoreOptionInsideOption(OnClickElement, ArrayOfInsideItem) {
 }
 
 function OpenOptionOfRestaurantOn(OnClickElement, ArrayOfInsideItem) {
+  console.log(ArrayOfInsideItem);
   const RenderElement = ReactDOM.createRoot(
     document.getElementById(`AdminWindowSideBarOption${OnClickElement}Option`)
   );
   RenderElement.render(
     <div id={`RenderMoreOptionInside${OnClickElement}`}>
-      {ArrayOfInsideItem.map((i) => (<SideBarOption Name={i} />))}
+      {ArrayOfInsideItem.map((i) => (<SideBarOption Name={i.Name} OnClickFunction={i.OnClickFunctionPass}/>))}
+       
      
 
     </div>
@@ -198,5 +203,18 @@ function CloseAllOtherOption() {
   OpenOptionOfRestaurantOf("Reservations");
   OpenOptionOfRestaurantValue = false;
   OpenOptionOfReservationsValue = false;
+}
+
+function AdminSideBarOnClickOnWorkingTime()
+{
+  console.log("hello from working Time");
+  const RenderWorkingTimeElement = ReactDOM.createRoot(
+    document.getElementById(
+      "AdminWindowContaintBar"
+    )
+  );
+  RenderWorkingTimeElement.render(<WorkingTime/>)
+  document.getElementById("AdminWindowSideBar").innerHTML="";
+
 }
 export default SideBar;
