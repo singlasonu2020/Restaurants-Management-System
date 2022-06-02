@@ -1,6 +1,5 @@
 body {
-  margin: 0; 
-  padding:0;                                         
+                                        
   font-family: Roboto, 'Segoe UI', Tahoma, sans-serif;      
  
  
@@ -36,15 +35,35 @@ body {
 /* Track */
 ::-webkit-scrollbar-track {
   background: #f1f1f1; 
+
 }
  
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background: rgb(35,41,54,0.7);
   border-radius: 5px; 
+
+
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: rgb(35,41,54); 
+}
+
+.WorkingTimeCustomDetailsCheckBox{
+  width :"25px";
+  padding:"200px"
+
+}
+
+
+.WorkingTimeCustomDetailsCheckBox::after 
+{
+  background-color: red;
+
+}
+
+#UpperDiv{
+  z-index: +10;
 }

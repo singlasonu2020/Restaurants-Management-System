@@ -7,6 +7,7 @@ import { faExclamationTriangle  } from "@fortawesome/free-solid-svg-icons";
 
 
 import WorkingTimeDefault from "./AdminWindowWorkingTimeDefaultForm";
+import WorkingTimeCustom from "./AdminWindowWorkingTimeCustomForm"
 
 
 function WorkingTime() {
@@ -27,7 +28,7 @@ function WorkingTime() {
             <div id="AdminWindowWorkingTimeReturningDivMainDic" style = {styleForWorkingTimeReturningDivMainDiv} >
                 <div id="AdminWindowWorkingTimeReturningDivMainDicButtonDiv" style={{display:"flex"}}>
                     <div id="AdminWindowWorkingTimeReturningDivMainDicButtonDivDefault" style={styleForWorkingTimeReturningDivMainDivButton} onClick={OnClickOnDefaultWorkingTime}>Default</div>
-                    <div style={styleForWorkingTimeReturningDivMainDivButton}>Custom</div>
+                    <div id="AdminWindowWorkingTimeReturningDivMainDicButtonDivCustom" style={styleForWorkingTimeReturningDivMainDivButton} onClick={OnClickOnCustomWorkingTime}>Custom</div>
                 </div>
                 <div id="AdminWindowWorkingTimeReturningDivMainDicContaint" style={{backgroundColor:"white",padding:"10px",paddingBottom:"30px"}}>
                    
@@ -56,9 +57,19 @@ function OnClickOnDefaultWorkingTime() {
     const WorkingTimeContaint = ReactDOM.createRoot(document.getElementById("AdminWindowWorkingTimeReturningDivMainDicContaint"));
     WorkingTimeContaint.render(<WorkingTimeDefault/>)
     document.getElementById("AdminWindowWorkingTimeReturningDivMainDicButtonDivDefault").style.backgroundColor="white";
+    document.getElementById("AdminWindowWorkingTimeReturningDivMainDicButtonDivCustom").style.backgroundColor="";
+    
+
+}
+function OnClickOnCustomWorkingTime() {
+    document.getElementById("AdminWindowWorkingTimeReturningDivMainDicButtonDivDefault").style.backgroundColor="";
+    document.getElementById("AdminWindowWorkingTimeReturningDivMainDicButtonDivCustom").style.backgroundColor="white";
+    const WorkingTimeContaint = ReactDOM.createRoot(document.getElementById("AdminWindowWorkingTimeReturningDivMainDicContaint"));
+    WorkingTimeContaint.render(<WorkingTimeCustom/>);
 }
 const styleForWorkingTimeReturningDivMainDivButton={
     padding:"15px",
-    fontSize:"14px"
+    fontSize:"14px",
+    cursor:"pointer"
 }
 export default WorkingTime;

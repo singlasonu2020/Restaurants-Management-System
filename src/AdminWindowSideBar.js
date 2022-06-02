@@ -88,6 +88,8 @@ let styleForAdminWindowSideBarReturningDiv = {
   height: "100%",
   textAlign: "center",
   color: "white",
+  zIndex: "+1"
+
 };
 
 let SyleForAdminWindowSideBarOption = {

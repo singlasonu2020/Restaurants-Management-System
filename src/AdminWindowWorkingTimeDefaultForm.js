@@ -47,7 +47,7 @@ class WorkingTimeDefault extends React.Component
                 <div style={{ display: "flex", borderBottom: "1px solid rgb(35,41,54,0.15)"}}>
                 <div style={{ width: "23%", padding: "0.5%",fontSize:"14px" }}>Day of Week</div>
                 <div style={{ width: "35%", padding: "0.5%" }}>Start Time</div>
-                <div style={{ width: "35%", padding: "0.5%" }}>Start Time	</div>
+                <div style={{ width: "35%", padding: "0.5%" }}>End Time	</div>
                 <div style={{ width: "7%", padding: "0.5%" }}>Is Day off</div>
                 </div>
                 {InsertAllDaysDefaultWorkingTmeForm()}
