@@ -1,7 +1,7 @@
 body {
                                         
-  font-family: Roboto, 'Segoe UI', Tahoma, sans-serif;      
- 
+  font-family: Roboto, 'Segoe UI', Tahoma, sans-serif;    
+  
  
   
 }
@@ -65,5 +65,67 @@ body {
 }
 
 #UpperDiv{
-  z-index: +10;
+  z-index: +20;
 }
+
+.AdminWindowDeleteFloor:hover
+{
+  border: 1px solid white;
+  border-radius: 50%;
+
+}
+
+
+#AdminWindowContaintBar
+{
+  
+  overflow-y: auto;
+}
+
+
+.LoginDiv 
+{
+ width: 35%;
+}
+
+#AminWindowSideBar
+{
+ width: 18%;
+}
+ 
+
+
+@media screen and ( max-width: 820px){
+ .LoginDiv
+ {
+  width: 55%;
+ }
+
+ #AminWindowSideBar
+ {
+  width:40%;
+ }
+}
+
+@media only screen and (max-width: 390px) {
+  .LoginDiv 
+ {
+  width: 75%;
+ }
+ #EntryAnimationReturningDivWelcomeHeading
+ {
+  font-size:16px;
+ }
+ #EntryAnimationReturningDivWelcomeSubHeading
+ {
+  font-size:12px;
+ }
+ 
+ #AminWindowSideBar
+ {
+  width:60%;
+ }
+
+ 
+ 
+ }

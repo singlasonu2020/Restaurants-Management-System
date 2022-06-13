@@ -43,7 +43,7 @@ const WorkingTimeCustomThisMonthDetails=(data)=>
             {data.ArrayOfFillCustomForm.map((item) => (<WorkingTimeCustomMonthDetailsOneDiv Title={item.Title} Date = {item.Date}  StartTimeHours={item.StartHours} StartTimeMin={item.StartMin} EndTimeHours = {item.EndHours} EndTimeMin={item.EndMin} IsDayOf = {item.IsDayOf} Id = {item.Id} DeleteFromMainArray={item.DeleteFromMainArray} OnClickOnCheckBox = {OnClickOnCheckBoxInCustomThisMonthDetails} EditInMainArray={item.EditInMainArray}/>))}
                   
             <div id="CustomMonthDetailsSelectDeleteButton"
-            style={{marginTop:"20px",borderRadius:"5px",padding:"8px",width:"120px",fontSize:"14px",color:"rgb(237,85,101)",backgroundColor:"white", border: "2px solid rgb(237,85,101)"}} 
+            style={{cursor:"pointer",marginTop:"20px",borderRadius:"5px",padding:"8px",width:"120px",fontSize:"14px",color:"rgb(237,85,101)",backgroundColor:"white", border: "2px solid rgb(237,85,101)"}} 
             onMouseOver={()=>{document.getElementById("CustomMonthDetailsSelectDeleteButton").style.color="white";document.getElementById("CustomMonthDetailsSelectDeleteButton").style.backgroundColor="rgb(237,85,101)"}} onMouseOut={()=>{document.getElementById("CustomMonthDetailsSelectDeleteButton").style.color="rgb(237,85,101)"; document.getElementById("CustomMonthDetailsSelectDeleteButton").style.backgroundColor="white"}}
             onClick={()=>{DeleteSelectedDiv(data.DeleteFromMainArray)}}>
                 {console.log(`${data.DeleteFromMainArray}----------------`)}

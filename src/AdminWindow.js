@@ -14,9 +14,9 @@ function AdminWindow() {
 
         AdminWindowReadyToRender()
         const WindowHeight = window.screen.height;
-        const HeightOfHeader = document.getElementById("AdminWindowHeader").clientHeight;
-        const RemaingHeight = WindowHeight - HeightOfHeader;
-        document.getElementById("AdminWindowContaintBar").style.height = `${(9*RemaingHeight)/10}px`;
+        const RemaingHeight = WindowHeight - 55;
+        document.getElementById("AdminWindowContaintBar").style.height = `${RemaingHeight}px`;    
+        console.log(document.getElementById("AdminWindowContaintBar").style.height);
 
     });
 
@@ -25,9 +25,9 @@ function AdminWindow() {
        
         <div id="AdminWindowReturnDiv">
 
-            <div><div id='AdminWindowHeader'></div></div>
+            <div><div id='AdminWindowHeader' ></div></div>
             <div id='AdminWindowSideBar'></div>
-            <div id= "AdminWindowContaintBar" style={{overflowY:"auto",height:"200px"}}></div>
+            <div id= "AdminWindowContaintBar"></div>
 
         </div>
 
