@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import "./index.css";
 import ReactDOM from "react-dom/client";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendar } from "@fortawesome/free-solid-svg-icons";
@@ -17,36 +18,26 @@ function InputTime(upto, difference) {
 };
 
 function WorkingTimeCustomForm(data) {
-    var CustomDivWidth;
-    let WindowWidth = window.screen.width;
-
-    if (WindowWidth >= 1024) {
-        CustomDivWidth = "30%";
-    } else if (WindowWidth >= 512) {
-        CustomDivWidth = "50%";
-    } else {
-        CustomDivWidth = "75%";
-    }
-
+  
     return (
 
-        <div  style={{ marginLeft: "5%", marginRight: "5%" }}>
-            <div class="input-group mb-3" style={{ width: `${CustomDivWidth}` , postion:"absolute" }}>
-                <div class="input-group-prepend" style={{ width: "27%" }}>
-                    <span class="input-group-text" id="inputGroup-sizing-default" style={{ width: "100%", fontSize: "14px" }}>Title</span>
+        <div className="AdminWindowCustomFormInputDiv" >
+            <div className="input-group mb-3 " >
+                <div class="input-group-prepend" style={{ width: "35%" }}>
+                    <span class="input-group-text" id="inputGroup-sizing-default" style={{ width: "100%"}}><span className="AdminWindowCustomFormSubHeadind">Title</span></span>
                 </div>
                 <input id="WorkingTimeCustomTitleInput" type="text" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default"></input>
             </div>
 
-            <div class="input-group mb-3" style={{ width: `${CustomDivWidth}` }}>
-                <div class="input-group-prepend" style={{ width: "27%" }}>
-                    <span class="input-group-text" id="inputGroup-sizing-default" style={{ width: "100%", fontSize: "14px" }}>Date</span>
+            <div class="input-group mb-3 "  >
+                <div class="input-group-prepend" style={{ width: "35%" }}>
+                    <span class="input-group-text" id="inputGroup-sizing-default" style={{ width: "100%"}}><span className="AdminWindowCustomFormSubHeadind">Date</span></span>
                 </div>
                 <input id="WorkingTimeCustomDateInput" type="date" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default"></input>
             </div>
-            <div class="input-group mb-3" style={{ width: `${CustomDivWidth}` }}>
-                <div class="input-group-prepend" style={{ width: "27%" }}>
-                    <span class="input-group-text" id="inputGroup-sizing-default" style={{ width: "100%", fontSize: "14px" }}>Is Day off</span>
+            <div class="input-group mb-3 ">
+                <div class="input-group-prepend" style={{ width: "35%" }}>
+                    <span class="input-group-text" id="inputGroup-sizing-default" style={{ width: "100%" }}><span className="AdminWindowCustomFormSubHeadind">Is Day off</span></span>
                 </div>
 
                 <div class="form-control" style={{ border: "none", paddingLeft: "5%" }}>
@@ -62,30 +53,30 @@ function WorkingTimeCustomForm(data) {
 
             </div>
 
-            <div class="input-group mb-3" id="WorkingTimeStartCustom" style={{ width: `${CustomDivWidth}` }}>
-                <div class="input-group-prepend" style={{ width: "27%" }}>
-                    <span class="input-group-text" id="inputGroup-sizing-default" style={{ width: "100%", fontSize: "14px" }}>Start Time</span>
+            <div class="input-group mb-3 " id="WorkingTimeStartCustom" >
+                <div class="input-group-prepend" style={{ width: "35%" }}>
+                    <span class="input-group-text" id="inputGroup-sizing-default" style={{ width: "100%" }}><span className="AdminWindowCustomFormSubHeadind">Start Time</span></span>
                 </div>
                 <div class="form-control" style={{ border: "none", paddingLeft: "5%" }} >
-                    <select id="WorkingTimeStartHourCustom" name="WorkingTimeStartHourCustom" style={{ width: "20%", fontSize: "16px", marginRight: "2px" }}>
+                    <select id="WorkingTimeStartHourCustom" name="WorkingTimeStartHourCustom" style={{ width: "30%", fontSize: "16px", marginRight: "2px" }}>
                         {InputTime(24, 1)}
                     </select>
-                    <select id="WorkingTimeStartMinCustom" name="WorkingTimeStartMinCustom" style={{ width: "20%", fontSize: "16px" }}>
+                    <select id="WorkingTimeStartMinCustom" name="WorkingTimeStartMinCustom" style={{ width: "30%", fontSize: "16px" }}>
                         {InputTime(60, 5)}
                     </select>
                 </div>
             </div>
 
-            <div class="input-group mb-3" id="WorkingTimeEndCustom" style={{ width: `${CustomDivWidth}` }}>
-                <div class="input-group-prepend" style={{ width: "27%" }}>
-                    <span class="input-group-text" id="inputGroup-sizing-default" style={{ width: "100%", fontSize: "14px" }}>End Time</span>
+            <div class="input-group mb-3 " id="WorkingTimeEndCustom" >
+                <div class="input-group-prepend" style={{ width: "35%" }}>
+                    <span class="input-group-text" id="inputGroup-sizing-default" style={{ width: "100%", fontSize: "14px" }}><span className="AdminWindowCustomFormSubHeadind">End Time</span></span>
                 </div>
                 <div class="form-control" style={{ border: "none", paddingLeft: "5%" }} >
-                    <select id="WorkingTimeEndHourCustom" name="WorkingTimeEndHourCustom" style={{ width: "20%", fontSize: "16px", marginRight: "2px" }}>
+                    <select id="WorkingTimeEndHourCustom" name="WorkingTimeEndHourCustom" style={{ width: "30%", fontSize: "16px", marginRight: "2px" }}>
                         {InputTime(24, 1)}
 
                     </select>
-                    <select id="WorkingTimeEndMinCustom" name="WorkingTimeEndMinCustom" style={{ width: "20%", fontSize: "16px" }}>
+                    <select id="WorkingTimeEndMinCustom" name="WorkingTimeEndMinCustom" style={{ width: "30%", fontSize: "16px" }}>
                         {InputTime(60, 5)}
                     </select>
                 </div>

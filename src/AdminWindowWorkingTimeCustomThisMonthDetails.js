@@ -11,31 +11,26 @@ import WorkingTimeCustomMonthDetailsOneDiv from "./AdminWindowWorkingTimeCustomM
 const WorkingTimeCustomThisMonthDetails=(data)=>
 {
  
-    console.log(`${data.DeleteFromMainArray}=============`)
     return(
         <div id="AdminWindowCustomWorkingTimeList">
             <div style={{display:"flex"}}>
                 <div  style={StyleForUpperOptionDivCheckBox}>
                     <input id = "AllCheckBoxInput"   type="checkbox" class = "WorkingTimeCustomDetailsCheckBox AllCheckBoxInput" style={{display:"none"}}/>
-                    <div id = "AllCheckBox" className = "AllCheckBox"style={{width:"25px",height:"25px", border:"3px solid rgb(35,41,54)"}}> <FontAwesomeIcon icon={faCheck} style={{fontSize:"18px",margin:"2px" ,color:"white"}} onClick={()=>{OnClickOnCheckBoxInCustomThisMonthDetails("00000","AllCheckBox",data.ArrayOfFillCustomForm)}}/></div>
+                    <div id = "AllCheckBox" className = "AllCheckBox"> <FontAwesomeIcon icon={faCheck} className="AdminCheckBoxTick" onClick={()=>{OnClickOnCheckBoxInCustomThisMonthDetails("00000","AllCheckBox",data.ArrayOfFillCustomForm)}}/></div>
                 </div>
-
-                <div style={StyleForUpperOptionDiv}>
+                <div className="StyleForUpperOptionDiv">
                     Title
                 </div>
-
-                <div style={StyleForUpperOptionDiv}>
+                <div className="StyleForUpperOptionDiv">
                     Date
-                </div>
-                <div style={StyleForUpperOptionDiv}>
+                </div>                    
+                <div className="StyleForUpperOptionDiv">
                     Start Time
                 </div>
-
-                <div style={StyleForUpperOptionDiv}>
+                <div className="StyleForUpperOptionDiv">
                     End Time
                 </div>
-
-                <div style={StyleForUpperOptionDiv}>
+                <div className="StyleForUpperOptionDiv">
                      Is Day off	
                 </div>
             </div>
@@ -58,11 +53,7 @@ const StyleForUpperOptionDivCheckBox = {
     width:"5%"
 }
 
-const StyleForUpperOptionDiv = {
-    width:"17%",
-    textAlign:"left",
-    color:"rgb(35,41,54)"
-}
+
 
 const selectedMonthDayDiv=[];
 function OnClickOnCheckBoxInCustomThisMonthDetails(Id,IdOfCheckBox,array) {
