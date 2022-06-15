@@ -1,13 +1,14 @@
 import React,{useEffect} from "react";
 import ReactDOM from "react-dom/client";
-import "./AdminLoginPage.css";
-import LoginDiv from "./LoginDiv";
+import "../Styling/EntryAnimation.css";
+import LoginDiv from "../LoginDiv";
 
 var WelcomeBack = "Welcome Back";
 var ToAdministrationPage = "To Administration Page";
 var lengthOfWelcomeBack = WelcomeBack.length;
 var lengthOfToAdministrationPage = ToAdministrationPage.length;
 var index = 0;
+//TypeAnimation
 function TypeWritingAnimation() {
   if (index >= lengthOfWelcomeBack + lengthOfToAdministrationPage) {
     setTimeout(() => {
@@ -33,6 +34,8 @@ function TypeWritingAnimation() {
     }, 100);
   }
 }
+
+//ReverseTypeAnimation
 function ReverseTypeWritingAnimation(OpacityOfText, OpacityOfBackground) {
   if (OpacityOfText <= 0) {
     document.getElementById("EntryAnimationReturningWelcomeDiv").style.display =
@@ -57,8 +60,10 @@ function ReverseTypeWritingAnimation(OpacityOfText, OpacityOfBackground) {
     ReverseTypeWritingAnimation(OpacityOfText, OpacityOfBackground);
   }, 1);
 }
+
+//Main Function For Export
 function EntryAnimation() {
-  console.log("one");
+  
   useEffect(()=>{TypeWritingAnimation()});
   return(
     <div id="EntryAnimationReturningDiv">
