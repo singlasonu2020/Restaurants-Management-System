@@ -20,7 +20,7 @@ function WorkingTime() {
 
             <div id="AdminWindowWorkingTimeReturningDivHeadingDiv" style={styleForWorkingTimeReturningDivHeadingDiv} >
                 <h1 style={{ fontSize: "24px" }}>Working Time Setting</h1>
-                <h3 style={{ fontSize: "14px" ,color: "rgb(35,41,54,0.6)",marginRight:"10%"}}> <FontAwesomeIcon icon={faInfoCircle} style={{marginRight:"5px"}}/> Below is the form to set the working time for the restaurant. You can also set different settings for some specific dates by clicking on the Tab Custom.</h3>
+                <h3 style={{ fontSize: "14px" ,color: "rgb(35,41,54,0.7)"}}> <FontAwesomeIcon icon={faInfoCircle}/> Below is the form to set the working time for the restaurant. You can also set different settings for some specific dates by clicking on the Tab Custom.</h3>
             </div>
 
             <h6 id="MessageforSucces" style={{fontSize:"12px" , color:"green",paddingTop:"15px",textAlign:"center"}}><spam id="MessageforSuccesSuccesIcon" style={{display:"none"}}><FontAwesomeIcon icon={faCheck}/></spam><spam id="MessageforSuccesRejectIcon" style={{display:"none"}}><FontAwesomeIcon icon={faExclamationTriangle}/></spam> <spam id="MessageforSuccesMessage"></spam></h6>
@@ -42,14 +42,12 @@ function WorkingTime() {
 const styleForWorkingTimeReturningDivHeadingDiv = {
     backgroundColor: "white",
     width: "100%",
-    padding: "2%",
+    // padding: "2%",
     color: "rgb(35,41,54,0.8)"
 };
 
 const styleForWorkingTimeReturningDivMainDiv = {
-margin :"2%",
-paddingBottom:"100px"
-
+margin :"2%"
 };
 
 function OnClickOnDefaultWorkingTime() {

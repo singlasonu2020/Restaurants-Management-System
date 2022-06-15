@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import "./LoginDiv.css";
-import "./index.css";
 import AdminForgotPassword from "./AdminForgotPassword"
 import AdminWindow from "./AdminWindow";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -14,11 +13,24 @@ import { render } from '@testing-library/react';
 
 
 function LoginDiv() {
-  
+  var LoginDivWidth;
+  let WindowWidth = window.screen.width;
+
+  if (WindowWidth >= 1024) {
+    LoginDivWidth = "35%";
+  } else if (WindowWidth >= 512) {
+    LoginDivWidth = "55%";
+  } else {
+    LoginDivWidth = "75%";
+  }
+
+  var LoginDivStyle = {
+    width: LoginDivWidth,
+  };
 
   return (
-    <div id="LoginDiv" className="LoginDiv">
-      <h2 id="LoginDivHeading" className="HeadingOfLoginDiv">Admin Login</h2>
+    <div id="LoginDiv" style={LoginDivStyle}>
+      <h2 id="LoginDivHeading">Admin Login</h2>
       
      
       <div className="input-group flex-nowrap LoginDivInsideDiv">

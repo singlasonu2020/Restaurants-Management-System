@@ -10,22 +10,16 @@ function AdminWindow() {
     document.getElementById("root").style.backgroundImage = "none";
     document.getElementById("root").style.backgroundColor = "rgb(243,243,244)";
 
-     useEffect(()=>{
-
+    useEffect(()=>{
         AdminWindowReadyToRender()
-        const WindowHeight = window.screen.height;
-        const RemaingHeight = WindowHeight - 55;
-        document.getElementById("AdminWindowContaintBar").style.height = `${RemaingHeight}px`;    
-        console.log(document.getElementById("AdminWindowContaintBar").style.height);
-
     });
 
     return (
     
        
-        <div id="AdminWindowReturnDiv">
+        <div id="AdminWindowReturnDiv" >
 
-            <div><div id='AdminWindowHeader' ></div></div>
+            <div><div id='AdminWindowHeader'></div></div>
             <div id='AdminWindowSideBar'></div>
             <div id= "AdminWindowContaintBar"></div>
 

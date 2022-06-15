@@ -10,17 +10,17 @@ import SideBar from "./AdminWindowSideBar";
 function NavBar() {
   let NameOfAdministrator = "Sonu Singla";
   return (
-    <div id="AdminWindowHeaderReturnDiv">
+    <div id="AdminWindowHeaderReturnDiv" style={{postion:"fixed",backgroundColor:"white"}}>
       <FontAwesomeIcon icon={faBars} id="AdminWindowHeaderBarIcon" onClick={(e)=>{OpenSideBar()}}/>
       <div id="AdminWindowNavBarRightSideOptionDiv">
       <h3 className = "AdminWindowNavBarRightSideOption">Welcome {NameOfAdministrator}</h3>
       <h3 className = "AdminWindowNavBarRightSideOption" >
         <FontAwesomeIcon icon={faUser} id="AdminWindowNavBarRightSideOptionDivProfileIcon" />
-        <span  className = "AdminWindowNavBarRightSideOptionSpan">Profile</span></h3>
+        <span>Profile</span></h3>
       <h3 className = "AdminWindowNavBarRightSideOption">
         <FontAwesomeIcon icon={faSignOut} id="AdminWindowNavBarRightSideOptionDivLogoutIcon" />
-        <span  className = "AdminWindowNavBarRightSideOptionSpan">Log out</span></h3>
-        <h3 className = "AdminWindowNavBarRightSideOptionNewReservation">New Reservation</h3>
+        <span>Log out</span></h3>
+        <h3 className = "AdminWindowNavBarRightSideOption" style={{backgroundColor:"rgba(35, 41, 54, 0.8)",color:"white",padding:"8px 15px 8px 15px",borderRadius:"3px",marginLeft:"8px"}}>New Reservation</h3>
 
       </div>
       

@@ -1,7 +1,8 @@
 body {
                                         
-  font-family: Roboto, 'Segoe UI', Tahoma, sans-serif;    
-  
+  font-family: Roboto, 'Segoe UI', Tahoma, sans-serif;     
+
+ 
  
   
 }
@@ -16,6 +17,7 @@ body {
   bottom: 0;
   right: 0;
   left: 0;
+  overflow-y: auto;
   
   
 
@@ -65,174 +67,5 @@ body {
 }
 
 #UpperDiv{
-  z-index: +20;
+  z-index: +10;
 }
-
-.AdminWindowDeleteFloor:hover
-{
-  border: 1px solid white;
-  border-radius: 50%;
-
-}
-
-
-#AdminWindowContaintBar
-{
-  
-  overflow-y: auto;
-}
-
-
-.LoginDiv 
-{
- width: 35%;
-}
-
-#AminWindowSideBar
-{
- width: 18%;
-}
-
-
-.AdminWindowCustomFormInputDiv
-{
- 
-  width: 30%;
-  margin-left: 5%;
-}
-
-.AdminWindowCustomFormSubHeadind{
-  font-size:14px;
-}
-
-.AllCheckBox
-{
-  width:25px;
-  height:25px;
-  border:3px solid rgb(35,41,54);
-  text-align: center;
-}
-
-.StyleForUpperOptionDiv
-{
-
-  font-size: 16px;
-  width:17%;
-  text-align:left;
-  color:rgb(35,41,54);
-}
-
-.AdminCheckBoxTick
-{
-  font-size:18px;
-  color:white;
-}
-
-
-
-
-@media screen and ( max-width: 820px){
- .LoginDiv
- {
-  width: 55%;
- }
-
- #AminWindowSideBar
- {
-  width:40%;
- }
-
- .AdminWindowCustomFormInputDiv
-{
-  width:65%;
-  margin-left: 5%;
- 
-}
-
-.AdminWindowCustomFormSubHeadind{
-  font-size:12px;
-}
-
-.AllCheckBox
-{
-  width:15px;
-  height:15px;
-  border:2px solid rgb(35,41,54);
-  text-align: center;
-}
-
-.AdminCheckBoxTick
-{
-  font-size:8px;
-  color:white;
-  margin-bottom: 9px
-}
-
-.StyleForUpperOptionDiv
-{
-
-  font-size: 10px;
-  width:17%;
-  text-align:left;
-  color:rgb(35,41,54);
-}
-
-
-}
-
-
-
-
-
-@media only screen and (max-width: 390px) {
-  .LoginDiv 
- {
-  width: 75%;
- }
- #EntryAnimationReturningDivWelcomeHeading
- {
-  font-size:16px;
- }
- #EntryAnimationReturningDivWelcomeSubHeading
- {
-  font-size:12px;
- }
- .AdminWindowCustomFormInputDiv
-{
-  width:90%;
-  margin-left:3%;
-}
- #AminWindowSideBar
- {
-  width:60%;
- }
-
- .AdminWindowCustomFormSubHeadind{
-  font-size:10px;
-}
-
-.AllCheckBox
-{
-  width:10px;
-  height:10px;
-  border:2px solid rgb(35,41,54);
-  text-align: center;
-}
-
-.AdminCheckBoxTick
-{
-  font-size:5px;
-  color:white;
-  margin-bottom: 13px;
-}
-
-.StyleForUpperOptionDiv
-{
-
-  font-size: 8px;
-  width:17%;
-  text-align:left;
-  color:rgb(35,41,54);
-}
- 
- }

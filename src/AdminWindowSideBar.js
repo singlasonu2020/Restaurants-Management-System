@@ -8,7 +8,6 @@ import { faAngleLeft } from "@fortawesome/free-solid-svg-icons";
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import WorkingTime from "./AdminWindowWorkingTime"
-import SeatMap from "./AdminWindowSeatMap"
 
 function OnClickAnyWhereWhenSideBarIsOpen(e){
   console.log("hello");
@@ -27,7 +26,7 @@ function SideBar() {
     }, 1)}
   );
   return (
-    <div id="AminWindowSideBar" style={styleForAdminWindowSideBarReturningDiv}>
+    <div style={styleForAdminWindowSideBarReturningDiv}>
       <div style={{ margin: "3%" }} id="AdminWindowSideBarCompanyDetails">
         <img
           src="/img/logo.png"
@@ -49,7 +48,7 @@ function SideBar() {
           Icon={faList}
           InsideOptionIcon={faAngleLeft}
           OnClickFunction={OpenMoreOptionInsideOption}
-          ArrayOfInsideItem= {[{Name :" New Reservation" , OnClickFunctionPass :""}, {Name :"Reservations List" , OnClickFunctionPass:""}]}
+          ArrayOfInsideItem= {[{Name :" New Reservation" , OnClickFunctionPass :AdminSideBarOnClickOnWorkingTime}, {Name :"Reservations List" , OnClickFunctionPass:""}]}
         
         />
         <div id="AdminWindowSideBarOptionReservationsOption"></div>
@@ -59,7 +58,7 @@ function SideBar() {
           Icon={faCutlery}
           InsideOptionIcon={faAngleLeft}
           OnClickFunction={OpenMoreOptionInsideOption}
-          ArrayOfInsideItem={[{Name :"Working Time" , OnClickFunctionPass :AdminSideBarOnClickOnWorkingTime}, {Name :"Restaurant Map" , OnClickFunctionPass:AdminSideBarOnClickOnSeatMap}]}
+          ArrayOfInsideItem={[{Name :"Working Time" , OnClickFunctionPass :AdminSideBarOnClickOnWorkingTime}, {Name :"Restaurant Map" , OnClickFunctionPass:""}]}
           
         />
         <div id="AdminWindowSideBarOptionRestaurantOption"></div>
@@ -69,12 +68,23 @@ function SideBar() {
   );
 }
 
+let SideBarWidth;
+let WindowWidth = window.screen.width;
+
+if (WindowWidth >= 1024) {
+  SideBarWidth = "18%";
+} else if (WindowWidth >= 512) {
+  SideBarWidth = "40%";
+} else {
+  SideBarWidth = "60%";
+}
 
 let styleForAdminWindowSideBarReturningDiv = {
   position: "absolute",
   left: 0,
   top: 0,
   backgroundColor: "rgb(35,41,54,0.9)",
+  width: `${SideBarWidth}`,
   height: "100%",
   textAlign: "center",
   color: "white",
@@ -199,7 +209,7 @@ function CloseAllOtherOption() {
 
 function AdminSideBarOnClickOnWorkingTime()
 {
- 
+  console.log("hello from working Time");
   const RenderWorkingTimeElement = ReactDOM.createRoot(
     document.getElementById(
       "AdminWindowContaintBar"
@@ -208,16 +218,5 @@ function AdminSideBarOnClickOnWorkingTime()
   RenderWorkingTimeElement.render(<WorkingTime/>)
   document.getElementById("AdminWindowSideBar").innerHTML="";
 
-}
-
-function AdminSideBarOnClickOnSeatMap() {
-  
-  const RenderWorkingTimeElement = ReactDOM.createRoot(
-    document.getElementById(
-      "AdminWindowContaintBar"
-    )
-  );
-  RenderWorkingTimeElement.render(<SeatMap/>)
-  document.getElementById("AdminWindowSideBar").innerHTML="";
 }
 export default SideBar;

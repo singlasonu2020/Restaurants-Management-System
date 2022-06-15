@@ -12,11 +12,25 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function AdmimOtpWindow() {
 
-  
+  var LoginDivWidth;
+  let WindowWidth = window.screen.width;
+
+  if (WindowWidth >= 1024) {
+    LoginDivWidth = "35%";
+  } else if (WindowWidth >= 512) {
+    LoginDivWidth = "55%";
+  } else {
+    LoginDivWidth = "75%";
+  }
+
+  var LoginDivStyle = {
+    width: LoginDivWidth,
+  };
+
 
   return (
-    <div className="LoginDiv">
-      <h2 id="AdminOtpPasswordHeading">Enter OTP</h2>
+    <div id="LoginDiv" style={LoginDivStyle}>
+      <h2 id="AdminForgotPasswordHeading">Enter OTP</h2>
 
       <div className="input-group flex-nowrap LoginDivInsideDiv">
         <span className="input-group-text" id="addon-wrapping">

@@ -63,9 +63,11 @@ function EntryAnimation() {
   return(
     <div id="EntryAnimationReturningDiv">
       <img src="/img/logo.png" alt="Logo" id="EntryAnimationReturningDivLogo" />
-      <h1 id="EntryAnimationReturningDivRestaurantName">Restaurant Booking System</h1>
+      <h1 id="EntryAnimationReturningDivRestaurantName">
+        Restaurant Booking System
+      </h1>
       <div id="EntryAnimationReturningWelcomeDiv">
-        <h1 id="EntryAnimationReturningDivWelcomeHeading" ></h1>
+        <h1 id="EntryAnimationReturningDivWelcomeHeading"></h1>
         <h6 id="EntryAnimationReturningDivWelcomeSubHeading"></h6>
       </div>
       <div id="EntryAnimationReturningLoginDiv"></div>
