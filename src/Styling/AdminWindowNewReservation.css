@@ -1,0 +1,165 @@
+.NewReservation {
+    width: 100%;
+    bottom: 0;
+    top: 0;
+    position: absolute;
+    background:linear-gradient(-90deg, rgba(254, 219, 57, 0.08) 1px, transparent 1px),linear-gradient(rgba(254, 219, 57, 0.08) 1px, transparent 1px),rgb(35, 41, 54);
+    background-size:10px 10px,10px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.MainNewReservation
+{
+    background-color: rgba(254, 219, 57, 0.2);
+    padding:20px;
+    border-radius:5px
+}
+
+.NewReservationOption
+{
+    background-color:white;
+    display:flex;
+    width:100%;
+
+}
+
+.NewReservationBottons
+{
+    padding: 5px 10px;
+    cursor: pointer;
+    color: rgba(35, 41, 54,0.7);
+    font-weight: 500;
+}
+
+.NewReservationBottons:hover
+{
+    color: rgb(35, 41, 54);
+
+}
+
+.ClickNewReservationBottons
+{
+    color: rgb(35, 41, 54);
+    border-bottom: 7px solid rgb(35, 41, 54);
+}
+
+.NewReservationContainer
+{
+    padding:20px;
+    margin-top: 25px;
+    background-color:white;
+}
+
+.DateComponenrRD
+{
+    display:flex;
+    width: 100%;
+    border:3px solid rgb(35, 41, 54,0.4);
+    border-radius:5px;
+    /* margin-top:20px; */
+    
+}
+
+
+.InputDateComponenrRD
+{
+    border:none;
+    width:100%;
+    padding:10px 15px;
+}
+
+.InputNumberComponenrRD
+{
+    border:none;
+    width:100%;
+    padding:10px 10px 10px 15px;
+}
+
+
+.InputDateComponenrRD:focus,.InputNumberComponenrRD:focus
+{
+    outline: none;
+}
+
+.DateComponenrRD:focus-within
+{
+    border:3px solid rgb(35, 41, 54,0.8);
+}
+
+
+
+
+.CalenderIconDateComponenrRD
+{
+    display: flex;
+    padding: 0 10px;
+    align-items: center;
+    cursor: pointer;
+}
+
+
+input[type=checkbox] {
+    accent-color: rgb(112 100 42);
+}
+
+.FlexibleWithTime
+{
+    width:18px;
+    height:18px;
+    margin-right: 10px;
+}
+
+
+.FlexibleWithTimeLabel
+{
+    font-weight: 500;
+    font-size: 18px;
+    color:rgba(35, 41, 54,0.8);
+}
+
+.ButtonForNewReservationDetails
+{
+    margin-top: 20px;
+    display: flex;
+    width:100%
+}
+
+.CancelBottonReservationDetails
+{
+    flex:0.5;
+    padding:10px;
+    font-size:21px;
+    font-weight: 700;
+    cursor:pointer;
+    color:rgba(255, 255, 255, 0.5);
+
+
+}
+
+.NextBottonReservationDetails
+{
+    flex:0.5;
+    display:flex;
+    justify-content: end;
+    padding:10px;
+    font-size:21px;
+    font-weight: 700;
+    cursor:pointer;
+    color:rgba(255, 255, 255, 0.5);
+}
+
+.NextBottonReservationDetails:hover,.CancelBottonReservationDetails:hover
+{
+    color:rgba(255, 255, 255, 1);
+}
+
+.LabelSelectDate
+{
+    transform: translate(10%, 50%);
+    font-weight: 700;
+    color: rgb(112 100 42);
+    width: fit-content;
+    background-color: white;
+}

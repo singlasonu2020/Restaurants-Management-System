@@ -1,0 +1,151 @@
+.DefaultSchesduleReturnDiv
+{
+    margin: 2%;
+    border:1px solid rgb(35,41,54,0.3);
+    width: 96%;
+    display:flex;
+    /* width:100%; */
+    overflow-x: auto;
+}
+
+
+.ScheduleDefaultDays
+{
+    width:14.28%;
+    text-align: center;
+    min-width: 200px;
+    cursor:pointer;
+    border:1px solid rgb(35,41,54,0.3);
+
+}
+
+.ScheduleDefaultDay
+{
+    border:1px solid rgb(35,41,54,0.3);
+    color:rgb(35,41,54);
+    font-weight:600;
+    font-size: 16px;
+
+}
+
+.OneSchedule
+{
+    border-left:1px solid rgb(35,41,54,0.3);
+    border-right:1px solid rgb(35,41,54,0.3);
+   
+}
+
+.OneScheduleData
+{
+    padding:5%
+}
+
+.OneScheduleDescription
+{
+    font-size:12px;
+    color:rgb(35,41,54);
+}
+
+.ButtonForAddSchedule
+{
+    background-color: rgb(35,41,54);
+    color:white;
+    cursor:pointer;
+    border:1px solid white;
+}
+
+.ScheduleFormComponent
+{
+    background-color: rgb(35,41,54,0.5);
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0; 
+}
+
+.ScheduleFormForm
+{
+    background-color: white;
+   width: 40%;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -50%);
+   padding: 3%;
+}
+
+.CustomSchesduleReturnDiv
+{
+    margin: 2%;
+    min-height:300px;
+    display:flex;
+
+    
+}
+
+.CustomScheduleSchedule
+{
+   display: flex;
+   overflow-x: auto;
+   flex:1;
+
+}
+
+.CustomScheduleButton
+{
+    
+    
+    background-color: rgb(35,41,54);
+    color:rgba(255, 255, 255, 0.8);
+    font-size: 30px;
+    font-weight: 400;
+    width:50px;
+    text-align:center;
+    cursor:pointer;
+    writing-mode: tb;
+
+
+}
+
+
+.InputWindowDiv
+{
+    display:flex;
+    background-color: rgb(35,41,54,0.3);
+    align-items: center;
+}
+
+
+.InputWindowDivClose
+{
+   padding:3px;
+   color: white;
+   cursor: pointer;
+}
+
+.InputWindowDivClose:hover 
+{
+    color:rgb(35,41,54) ;
+}
+
+
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+@media screen and ( max-width: 820px){
+
+    .ScheduleFormForm
+    {
+        width: 60%;
+    }
+}
+
+
+
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+@media screen and ( max-width: 390px){
+
+    .ScheduleFormForm
+    {
+        width: 80%;
+    }
+}

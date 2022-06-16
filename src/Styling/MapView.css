@@ -1,0 +1,81 @@
+.Slider
+{
+    left:25%;
+    right:50%;
+    top:0;
+    bottom:0;
+    height:100%;
+    position: absolute;
+    background-color:rgba(35, 41, 54,0.5);
+}
+
+input[type="range"]
+{
+   
+    width:100%;
+    top:0;
+    bottom:0;
+    position: absolute;
+    -webkit-appearance: none;
+    pointer-events: none;
+    background:none;
+    outline:none ;
+}
+
+input::-webkit-slider-thumb
+{
+    pointer-events: auto;
+    -webkit-appearance: none;
+    width: 3px;
+    height: 50px;
+    background-color: rgba(255, 255, 255, 0.7);;
+    cursor: auto;
+
+}
+
+
+
+.MapViewMapRender::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    margin-top: 0;
+
+}
+
+.TimeShow
+{
+    display:flex;
+    justify-content: end;
+    flex:0.5;
+    
+}
+
+.TimeShowDiv
+{
+    background-color:rgba(35, 41, 54);
+    color: white;
+    padding:5px 10px;
+    font-weight:500;
+    width:160px
+
+}
+
+
+.BookedColorShow
+{
+    background-color: rgb(247, 73, 89);
+    display: flex;
+    align-items: center;
+    padding: 0 25px;
+    font-weight: 600;
+}
+
+.TableBookedClass
+{
+    background-color:rgb(247,73,89);
+}
+
+
+.TableBookedClass:hover
+{
+    background-color:white;
+}

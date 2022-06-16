@@ -1,0 +1,130 @@
+
+
+.LoginDiv {
+    background-color: white;
+    border-radius: 5px;
+    padding: 2%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: 0;
+    color: #6A737B;
+    text-align: left;
+    width:35%;
+}
+
+.HeadingOfLoginDiv{
+    font-size:24px;
+    padding:0;
+    float:left;
+    display: inline;
+}
+
+#BackToLogin,#LoginDivForgotButton,#BackToLoginInOtp,#BackToLoginInNewPassword
+{
+    float: right;
+    font-size:12px;
+    font-weight: bold;
+    padding-top: 5%;
+    cursor: pointer;
+}
+
+.LoginDivInsideDiv {
+    padding-top: 3%;
+    padding-bottom: 3%;
+}
+
+#LoginDivLoginButton
+{
+    padding-left: 7%;
+    padding-right: 7%;
+   float: left;
+
+}
+
+#LoginDivClosePasswordIcon
+{
+    display:none;
+}
+
+
+#AdminNewPasswordUpdateSuccessfullyHeading
+{
+    font-size: 12px
+}
+
+#AdminNewPasswordUpdateSuccessfullyHeading span
+{
+    color: green;
+}
+
+#AdminNewPasswordUpdateSuccessfullyGoToLoginPage
+{
+    cursor:pointer;
+    font-size: 18px;
+}
+
+/* ------------------------------------------------------------------------------------------------------------------------------------------------- */
+@media screen and ( max-width: 820px){
+    .HeadingOfLoginDiv
+    {
+        font-size: 16px;
+        padding:0;
+        float:left;
+        display: inline;
+    }
+
+    .LoginDiv 
+    {
+        background-color: white;
+        border-radius: 5px;
+        padding: 2%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        margin: 0;
+        color: #6A737B;
+        text-align: left;
+        width:55%;
+    }
+}
+
+
+
+
+
+
+/* ------------------------------------------------------------------------------------------------------------------------------------------------- */
+@media screen and ( max-width: 390px){
+    .HeadingOfLoginDiv
+    {
+        font-size: 16px;
+        padding:0;
+        float:left;
+        display: inline;
+    }
+
+    .LoginDiv 
+    {
+        background-color: white;
+        border-radius: 5px;
+        padding: 2%;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        margin: 0;
+        color: #6A737B;
+        text-align: left;
+        width:75%;
+    }
+}
+
+
+
+
+
+
+

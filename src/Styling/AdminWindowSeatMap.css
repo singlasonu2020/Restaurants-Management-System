@@ -1,0 +1,157 @@
+#AdminWindowSeatMapMainContentDiv
+{
+    background-color: white;
+    width: 94%;
+    margin: 3%;
+    height: 94%;
+    padding: 3%;
+}
+
+
+.AdminWindowSaveMapButton
+{
+   
+    display:none;
+
+}
+
+.AdminWindowSaveButtonCss
+{
+    margin-right:10px;
+
+}
+
+
+#AdminWindowSeatMapEditsOption
+{
+    display: flex;   
+}
+
+#AdminWindowSeatMapMainContentDivMap
+{
+    border: 0.5px solid rgb(35,41,54,0.7) ;
+    height: 1000px;
+    overflow-x: auto;
+    margin-bottom: 5%;
+    overflow-y: hidden;
+
+}
+
+#AdminWindowSeatMapMainContentInsideDivMap ul
+{
+   list-style: none;
+    padding: 0;
+}
+
+#AdminWindowMapFloorOption
+{
+     margin-top: 3%;
+     display: flex; 
+
+}
+
+
+#AdminWindowSeatMapMainContentInsideDivMap{
+   width: 1200px; 
+   height: 1200px;
+}
+
+.FloorButtonClick
+{  
+        font-size: 14px;
+        padding: 5px;
+        background-color: rgb(35,41,54);
+        color: white;
+        cursor: pointer;
+    
+}
+
+.FloorButton
+{
+
+        font-size: 14px;
+        padding: 5px;
+        background-color: rgb(35,41,54,0.5);
+        color: white;
+        cursor: pointer;
+
+
+}
+.AdminWindowDeleteFloor
+{
+    font-size:10px;
+    margin-left:7px;
+    padding:3px;
+    border:1px solid;
+}
+
+.ShortAddFloor
+{
+    display: none;
+}
+
+.SideChairLeft1
+{
+    font-size:20px;
+    margin-top:30px;
+}
+
+.SideChairLeft2
+{
+    font-size:20px;
+    margin-top:10px;
+}
+
+.TopChair
+{
+    font-size: 20px; 
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.TableChairSet
+{
+   display: flex; 
+}
+
+.Table
+{
+    background-color: rgb(35,41,54,0.8);
+    border-radius:5px;
+    text-align:center;
+}
+
+.TableNumber
+{
+    
+
+    color:white;
+    font-size:20px;
+    border:2px solid white;
+    padding: 0 7px;
+   
+}
+
+@media screen and ( max-width: 1100px){
+    .FullAddFloor
+    {
+        display: none;
+    }
+
+    
+  .ShortAddFloor
+   {
+    display: block;
+    font-size: 14px;
+   }
+}
+@media screen and ( max-width: 390px){
+  
+    .AdminWindowSaveButtonCss
+    {
+     margin-right:5px;
+     padding:2px 3px;
+    }
+
+ 
+}

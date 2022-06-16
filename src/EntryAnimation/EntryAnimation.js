@@ -1,7 +1,8 @@
 import React,{useEffect} from "react";
 import ReactDOM from "react-dom/client";
 import "../Styling/EntryAnimation.css";
-import LoginDiv from "../LoginDiv";
+import LoginDiv from "../LoginWindow/Login";
+
 
 var WelcomeBack = "Welcome Back";
 var ToAdministrationPage = "To Administration Page";
@@ -67,7 +68,7 @@ function EntryAnimation() {
   useEffect(()=>{TypeWritingAnimation()});
   return(
     <div id="EntryAnimationReturningDiv">
-      <img src="/img/logo.png" alt="Logo" id="EntryAnimationReturningDivLogo" />
+      <img src="/img/logo.png" alt="Logo" className="EntryAnimationReturningDivLogo" />
       <h1 id="EntryAnimationReturningDivRestaurantName">Restaurant Booking System</h1>
       <div id="EntryAnimationReturningWelcomeDiv">
         <h1 id="EntryAnimationReturningDivWelcomeHeading" ></h1>
@@ -75,7 +76,6 @@ function EntryAnimation() {
       </div>
       <div id="EntryAnimationReturningLoginDiv"></div>
  
-  
     </div>
   );
 }

@@ -1,0 +1,168 @@
+.ReturnInputClock
+{
+    position:absolute;
+    top:0;
+    bottom:0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:rgb(35,41,54,0.5);
+    ;
+}
+
+.ReturnInputClockMain
+{
+    position:relative;
+    width:300px;
+    height:450px;
+    background-color:rgb(35,41,54);
+
+}
+
+.ReturnInputClockHeading{
+    width:100%;
+    height: 100px;
+    padding: 10px;
+    color:white;
+    display: flex;
+    justify-content: center;
+    font-size: 70px;
+    font-weight:300;
+    align-items: center;
+}
+
+.ReturnInputClockClock
+{
+    position:relative;
+    width:100%;
+    height: 300px;
+    padding: 10px;
+    color:white; 
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 300;
+
+}
+
+.ReturnInputClockClockSmall
+{
+    position:relative;
+    width:220px;
+    height: 220px;
+    margin: 30px;
+    padding:10px;
+    background-color:white;
+    border-radius:50%;
+    color:white;
+
+}
+
+.ReturnInputClockButton
+{
+    width:100%;
+    height: 50px;
+    color:white;
+    display:flex;
+    font-size:24x;
+    font-weight:700;
+    justify-content: center;
+}
+
+.ReturnInputClockButtonButton
+{
+    padding:5px 20px ;
+    cursor:pointer;
+
+
+}
+
+
+.ReturnInputClockButtonButton:hover
+{
+    background-color:rgb(255,255,255,0.4);
+}
+
+
+.AllLiTagInClock13
+{
+    list-style:none;
+    position: absolute; 
+    left:20px;
+    transform-origin:130px; 
+    color: rgba(255, 255, 255, 0.8);
+    
+}
+
+.AllLiTagInClock60
+{
+    list-style:none;
+    position: absolute; 
+    left:20px;
+    transform-origin:130px; 
+    color: rgba(255, 255, 255, 0.8);
+    
+}
+
+.AllLiTagInClock1
+{
+    list-style:none;
+    position: absolute; 
+    left:50px;
+    transform-origin:100px; 
+}
+
+#CenterOfClock
+{
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: white;
+
+}
+.AllHrs
+{
+    padding:2px;
+    width:30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+
+}
+.AllHrs:hover
+{
+    background-color:rgba(144, 48, 82, 0.5);
+    border-radius: 50%;
+}
+
+#TowordTime
+{
+    color: white;
+    width: 130px;
+    position: absolute;
+    left: 140px;
+    color: rgb(144,48,81);
+    height: 2px;
+    transform-origin: 10px;
+    
+}
+
+.OnHoverOnHours{
+    background-color:rgba(144, 48, 82, 0.5);
+    border-radius: 50%;
+}
+
+.AllMin{
+    /* padding:2px; */
+    width:15px;
+    height:15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}

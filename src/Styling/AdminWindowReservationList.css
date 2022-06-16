@@ -1,0 +1,443 @@
+.ReservationListReturnDiv {
+
+    position: fixed;
+    top: 55px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+
+
+.ReservationListNavBar {
+    width: 100%;
+    height: 8%;
+}
+
+.ReservationListMainContainer {
+    width: 100%;
+    height: 92%;
+    padding: 2%;
+    background-color: rgba(35, 41, 54, 0.2);
+    display: flex;
+    gap: 20px;
+
+}
+
+.ReservationListTimeView {
+    border-radius: 5px;
+    overflow-x: auto;
+    overflow-y: auto;
+
+}
+
+.ReservationListMapView
+{
+    border-radius: 5px;
+    width:100%;
+    height:100%;
+}
+
+
+.ReservationListTimeView::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    margin-top: 0;
+
+}
+
+.TimeLineViewReturnDiv {
+    border-radius: 5px;
+    height: 100%;
+}
+
+.TimeLineViewReturnDiv::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    margin-top: 0;
+
+}
+
+.TimeLineReturningDiv {
+    display: grid;
+    width: 100%;
+
+}
+
+.TableNameRowSide {
+    height: 50px;
+}
+
+.HrsContainer {
+    height: 50px;
+    border-left: 1px solid rgba(35, 41, 54, 0.2);
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    padding: 3px;
+    color: rgba(35, 41, 54);
+
+}
+
+.MinContainer {
+    height: 50px;
+    border-left: 1px solid rgba(35, 41, 54, 0.2);
+    display: flex;
+    align-items: center;
+    padding: 3px;
+    color: rgba(35, 41, 54);
+
+}
+
+.FllorNumberView {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    font-weight: 700;
+    padding-left: 25px;
+    color: rgba(35, 41, 54);
+    background-color: rgb(255, 255, 255, 0.3);
+
+}
+
+.TableViewReturnDiv {
+    display: grid;
+}
+
+.TableNameRowSideTBN {
+    min-height: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.ReservationTable {
+    min-height: 50px;
+    border-left: 1px solid rgba(35, 41, 54, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px 5px;
+    color: rgba(35, 41, 54);
+}
+
+.NumberOfGuest {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    margin-right: 5px;
+}
+
+.TimingOnReservationDiv {
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.ReservationListCellView {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    flex:1;
+
+
+}
+
+.ReservationListCells {
+    min-width: 300px;
+    overflow-y: scroll;
+    height: 88%;
+}
+
+.ReservationListCells::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    margin-top: 0;
+
+}
+
+
+.LatestReservationHeading {
+    font-size: 20px;
+    font-weight: 500;
+    padding-bottom: 20px;
+    max-height:12%;
+    color: rgba(35, 41, 54);
+}
+
+
+.CellViewReturnDiv {
+    padding-right: 20px;
+}
+
+
+.CellReturningDiv {
+    border-bottom: 2px solid rgba(35, 41, 54, 0.3);
+    display: flex;
+    margin: 20px 0;
+    width:100%
+}
+
+.MoreDetailsCell {
+    padding-left: 10px;
+    width:100%;
+}
+
+.NameDateCell {
+    display: grid;
+    grid-auto-flow: column;
+}
+
+.NameCell {
+    font-size: 16px;
+    font-weight: 600;
+    color: rgba(35, 41, 54);
+
+}
+
+.DateCell {
+    text-align: end;
+    font-size: 12px;
+    font-weight: 600;
+    color: rgba(35, 41, 54, 0.7);
+}
+
+.DescriptionCell {
+    margin: 15px 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: rgba(35, 41, 54, 0.8);
+}
+
+.ContactTime {
+    padding: 10px 0 20px 0;
+    font-size: 12px;
+    font-weight: 600;
+    color: rgba(35, 41, 54, 0.7);
+}
+
+.TimeCell {
+    text-align: end;
+}
+
+.ConatctIconCell:hover {
+    color: rgba(35, 41, 54);
+}
+
+.ConatctIconCell {
+    cursor: pointer;
+    margin: 0 10px;
+}
+
+.NumberOfGuestCell {
+    padding: 5px;
+    width: auto;
+    height: auto;
+}
+
+.TableNumberCell {
+    text-align: center;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.RervationListHeaderReturn {
+    display: grid;
+    grid-auto-flow: column;
+    height: 100%;
+    gap: 10px;
+
+}
+
+.DateInputHeader {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    padding-left: 10%;
+    font-size: 16px;
+}
+
+.TodayCells {
+    display: flex;
+    height: 30px;
+    color: rgba(35, 41, 54,0.8);
+    border: 2px solid;
+    align-items: center;
+    font-weight: 600;
+
+}
+
+.IconRightCell {
+    padding: 0 5px;
+    height: 100%;
+    width: 100%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.IconRightCell:hover ,.TodayCell:hover{
+    background-color: rgba(35, 41, 54,0.7);
+    color: white;
+}
+
+.TodayCellClick
+{
+    background-color: rgba(35, 41, 54);
+    color: white;
+}
+
+.TodayCell {
+    padding: 0 5px;
+    height: 100%;
+    border-right: 2px solid;
+    border-left: 2px solid;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.calenderIconCell {
+    color: rgba(35, 41, 54);
+    border: 2px solid;
+    height: 30px;
+    width: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+
+.calenderIconCell:hover {
+    background-color: rgba(35, 41, 54);
+    color: white;
+}
+
+
+.AllOtherOption {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    gap: 15px;
+    padding-right: 10%;
+}
+
+.imageIcon:hover {
+    background-color: rgba(35, 41, 54, 0.3);
+    color: rgba(35, 41, 54);
+}
+
+.DateShowCell {
+    font-size: 22px;
+    font-weight:600;
+
+}
+
+
+@media screen and (max-width: 700px) {
+    .DateShowCell {
+        font-size: 18px;
+    }
+
+    .DateInputHeader {
+     
+        gap: 15px;
+        padding-left: 7%;
+        font-size: 14px;
+    }
+
+    .TodayCells ,.calenderIconCell {
+        height: 25px;
+    }
+
+    .AllOtherOption {
+        gap: 10px;
+        padding-right: 7%;
+    }
+
+
+
+}
+@media screen and (max-width: 550px) {
+    .TodayCells
+    {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .ReservationListCellView {
+        display: block;
+        margin: 0 auto;
+        width: 90%;
+    }
+
+
+    .DateCell {
+        font-size: 10px;
+    }
+
+    .FullScrreenIcons
+    {
+        display:none;
+    }
+
+
+    .DateShowCell {
+        font-size: 14px;
+    }
+
+    .DateInputHeader {
+     
+        gap: 8px;
+        font-size: 12px;
+    }
+
+    .TodayCells ,.calenderIconCell {
+        height: 25px;
+    }
+
+    .AllOtherOption {
+        gap: 8px;
+        font-size: 12px;
+    }
+
+    
+
+    .ReservationListCells 
+    {
+        min-width: 250px;
+    }
+}
+
+
+@media screen and (max-width: 350px) {
+
+    .NameCell {
+        font-size: 14px;
+
+    }
+
+    .DateCell {
+        font-size: 10px;
+    }
+
+    .DescriptionCell {
+        font-size: 12px;
+        margin: 10px 0;
+
+    }
+
+    .ContactTime {
+        padding: 8px 0 15px 0;
+        font-size: 10px;
+    }
+
+    .TableNumberCell {
+        font-size: 14px;
+    }
+
+}

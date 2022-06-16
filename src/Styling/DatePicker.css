@@ -1,0 +1,241 @@
+.DatePickerReturnDiv
+{
+    position:absolute;
+    top:0;
+    bottom:0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:rgb(35,41,54,0.5);;
+}
+
+.DatePicker
+{
+    border-radius:5px;
+    width:330px;
+}
+
+.SelectedDate
+{
+    background-color:rgb(35,41,54);
+    color:white;
+    padding: 25px 25px  0 25px;
+   
+}
+
+.SelectDate
+{
+    font-size:12px;
+}
+
+.DateView
+{
+    font-size:34px;
+    padding:25px 0 15px 0;
+}
+
+.DateTakeInput
+{
+    padding: 10px 25px  0 25px;
+    background-color: white;
+
+}
+
+.MonthYear
+{
+    font-size:15px;
+    font-weight:500;
+    padding:10px;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+.MonthYear:hover
+{
+    background-color:rgb(35,41,54,0.2);
+    color:rgb(35,41,54);
+
+}
+
+.MonthsYears
+{
+    display: flex;
+    justify-content: space-between;
+    color: rgb(35,41,54,0.8);
+
+}
+
+.LeftIconDatePicker,.RightIconDatePicker
+{
+    padding: 10px;
+    border-radius: 50%;
+    cursor:pointer;
+
+}
+
+.LeftIconDatePicker
+{
+    margin-right: 15px;
+}
+
+.RightIconDatePicker
+{
+    margin-left: 15px;
+}
+
+.RightIconDatePicker:hover, .LeftIconDatePicker:hover
+{
+    background-color:rgb(35,41,54,0.2);
+    color:rgb(35,41,54);
+}
+
+.DateInput
+{
+    padding:10px 0;
+    min-height:280px;
+}
+
+.DateInputReturn
+{
+    color: rgb(35,41,54,0.8);    
+    
+    font-size: 12px;
+    font-weight: 400;
+
+}
+
+.CellOfDate
+{
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    border-radius:50%;
+}
+
+.PreviousDateCell,.NextDateCell
+{
+    color: rgb(35,41,54,0.3);    
+
+}
+
+.CurrentDateCell
+{
+    font-weight: 500;
+}
+
+.AllDateCell
+{
+    cursor: pointer;
+}
+
+.AllDateCell:hover
+{
+    background-color:rgb(35,41,54,0.1);        
+}
+
+.CurrentDay
+{
+    background-color: rgb(35,41,54);
+    color: white;
+    cursor: pointer;
+}
+
+.YearCell
+{
+    width: 72px;
+    height: 40px;
+    padding: 1px 2px;
+    text-align: center;
+    border-radius: 999px;
+    cursor:pointer;
+}
+
+.YearCell:hover
+{
+    background-color:rgb(35,41,54,0.1);        
+}
+
+.CurrentYear
+{
+    width: 72px;
+    height: 40px;
+    padding: 1px 2px;
+    text-align: center;
+    border-radius: 999px;
+    cursor:pointer;
+    background-color:rgb(35,41,54);
+    color: white;  
+}
+
+#YearYearComponent, #MainYearComponent, #MainMonthComponent
+{
+    display:none;
+}
+
+
+.MonthCells
+{
+    width: 72px;
+    height: 40px;
+    padding: 1px 2px;
+    border-radius: 999px;
+    text-align: center;  
+    cursor:pointer;   
+
+}
+
+.MonthCells:hover
+{
+    background-color:rgb(35,41,54,0.1);     
+}
+
+.CurrentMonthCell
+{
+    width: 72px;
+    height: 40px;
+    padding: 1px 2px;
+    border-radius: 999px;
+    background-color:rgb(35,41,54);
+    color:white;
+    text-align: center;  
+    cursor:pointer;   
+   
+}
+
+.BotttonDiv
+{
+    display:flex;
+    width:100%;
+    padding:0 0 25px 0;
+    color:rgb(35,41,54,0.9);
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.ClearBottonDiv
+{
+    flex:0.5;
+    display: flex;
+}
+
+.CancelOkBotton
+{
+    display: flex;
+    gap: 25px;
+    flex: 0.5;
+    justify-content: end;
+}
+
+.BottonsDatePicker
+{
+    cursor:pointer;
+    padding:5px 10px ;
+    border-radius: 999px;
+}
+
+.BottonsDatePicker:hover
+{
+    background-color:rgb(35,41,54,0.1);     
+}

@@ -25,7 +25,7 @@
     display: none;
   }
   
-  #EntryAnimationReturningDivLogo
+  .EntryAnimationReturningDivLogo
   {
       width:120px;
       margin-top:3%;
@@ -40,14 +40,23 @@
 /* meta for 390 */
 
   @media screen and ( max-width: 390px){
-    #EntryAnimationReturningDivLogo
+    .EntryAnimationReturningDivLogo
     {
-        width:100px;
+        width:90px;
         margin-top:3%;
     }
   
     #EntryAnimationReturningDivRestaurantName
     {
       font-size:18px;
+    }
+
+    #EntryAnimationReturningDivWelcomeHeading
+    {
+     font-size:16px;
+    }
+    #EntryAnimationReturningDivWelcomeSubHeading
+    {
+     font-size:12px;
     }
 }

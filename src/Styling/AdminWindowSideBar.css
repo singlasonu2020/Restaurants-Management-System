@@ -1,0 +1,100 @@
+#AminWindowSideBar
+{
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: rgb(35,41,54,0.9);
+  height: 100%;
+  text-align: center;
+  color: white;
+  z-index: +1;
+  width: 230px;
+}
+
+
+
+#AdminWindowSideBarCompanyDetails{
+    margin:3%;
+
+}
+
+#AdminWindowSideBarRestaurantName
+{
+  font-size: 18px;
+  padding-Top: 10px; 
+}
+
+#AdminWindowSideBarOption{
+    
+        text-align: left;
+        margin-top: 50px;
+   
+      
+}
+
+
+.AdminWindowSideBarAngleDownIcon{
+  padding-right: 10px;
+  float: right;
+}
+
+.AdminWindowSideBarOptionReturnDiv
+{
+   
+        color: white;
+        padding: 8%;
+        padding-right: 10%;
+        cursor: pointer;
+     
+}
+
+.AdminWindowSideBarOptionReturnDiv:hover
+{
+  background-color: rgb(35,41,54,0.5);
+}
+
+.AdminWindowSideBarOptionOption{
+   font-size: 14px;
+   margin: 0; 
+   padding: 0;
+}
+
+/* ------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------ */
+@media screen and ( max-width: 820px){
+
+
+
+
+
+    
+}
+
+/* ------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------ */
+@media screen and ( max-width: 390px){
+
+#AminWindowSideBar
+{
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: rgb(35,41,54,0.9);
+  height: 100%;
+  text-align: center;
+  color: white;
+  z-index: "+3";
+  width: 180px;
+}
+
+
+#AdminWindowSideBarRestaurantName
+{
+  font-size: 14px;
+  padding-Top: 8px; 
+}
+
+
+
+
+} 
