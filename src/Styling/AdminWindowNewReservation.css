@@ -1,7 +1,7 @@
 .NewReservation {
     width: 100%;
     bottom: 0;
-    top: 0;
+    top: 55px;
     position: absolute;
     background:linear-gradient(-90deg, rgba(254, 219, 57, 0.08) 1px, transparent 1px),linear-gradient(rgba(254, 219, 57, 0.08) 1px, transparent 1px),rgb(35, 41, 54);
     background-size:10px 10px,10px 10px;
@@ -52,6 +52,10 @@
     background-color:white;
 }
 
+.NewReservationContainerTemp{
+    font-size: 15px;
+    padding:-10px 0;
+}
 .DateComponenrRD
 {
     display:flex;
@@ -70,6 +74,13 @@
     padding:10px 15px;
 }
 
+.InputDateComponenrRDTemp
+{
+    border:none;
+    width:100%;
+    padding:7px 10px 7px 10px;
+}
+
 .InputNumberComponenrRD
 {
     border:none;
@@ -78,7 +89,7 @@
 }
 
 
-.InputDateComponenrRD:focus,.InputNumberComponenrRD:focus
+.InputDateComponenrRD:focus,.InputNumberComponenrRD:focus,.InputDateComponenrRDTemp:focus
 {
     outline: none;
 }
@@ -162,4 +173,19 @@ input[type=checkbox] {
     color: rgb(112 100 42);
     width: fit-content;
     background-color: white;
+}
+
+.LabelTemp
+{
+    font-weight:400;
+}
+
+select
+{
+}
+
+.SONU *
+{
+        background-color: red;
+
 }
