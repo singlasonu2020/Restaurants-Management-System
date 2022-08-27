@@ -25,6 +25,7 @@
     "react-bootstrap-date-picker": "^5.1.0",
     "react-date-picker": "^8.4.0",
     "react-dom": "^18.1.0",
+    "react-flags-select": "^2.2.3",
     "react-native": "^0.68.2",
     "react-native-highlight-words": "^1.0.1",
     "react-native-web": "^0.18.1",

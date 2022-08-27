@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import "../Styling/AdminWindowNewReservation.css";
 import ReservationDetails from "./ReservationDetails.js";
 import ClientDetails from "./ClientDetails.js";
+import SelectTable from "./SelectTable"
 
 
 function NewReservation() {
@@ -70,7 +71,7 @@ function ClickButton(option,SetOption) {
 
           break;
         case 1:
-            root.render(<ReservationDetails />);
+            root.render(<SelectTable />);
             document.getElementById("SelectTable").classList.add("ClickNewReservationBottons");
 
           break;

@@ -8,7 +8,8 @@ import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { faPhone } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { getCountries, getStates } from "country-state-picker";
-import "/node_modules/flag-icons/css/flag-icons.min.css";
+import ReactFlagsSelect from "react-flags-select";
+
 
 
 
@@ -16,19 +17,35 @@ function ClientDetails() {
 
     const [dob, SetDob] = useState();
     const [country, SetCountry] = useState("in");
+    const [select, setSelect] = useState("");
+    const [dial_code,SetDialCode]=useState("")
+    const onSelect = (code) => {
+        setSelect(code);
+        SetCountry(code.toLowerCase())
+    };
 
+    const onDialCode=(code)=>{
+        SetDialCode(code);
+    }
 
     useEffect(() => {
         PutDate(dob)
+        console.log(document.getElementsByClassName("fi-gr")[0])
     })
 
 
 
     let countries = getCountries();
-    console.log(countries);
+    let contriesCode = countries.map((item)=>{return item.code.toUpperCase()});
+    let contryLabel={};
+    contriesCode.forEach((element,i) => {
+        contryLabel[element]=countries[i].dial_code;
+    });
+
+    console.log(contryLabel)
+
     return (
         <div className="ReservationDetails NewReservationContainerTemp">
-             {/* <div className="fi fi-in fis"></div> */}
             <div>
                 <div className="LabelSelectDate LabelTemp">Name <FontAwesomeIcon icon={faUser} /> <span style={{ color: "red" }}>*</span> </div>
                 <div id="ClientNameRD" className="DateComponenrRD">
@@ -36,53 +53,55 @@ function ClientDetails() {
                 </div>
             </div>
 
-            <div style={{ display: "flex", gap: "20px" }}>
-            <div style={{flex:"0.5"}}>
-                <div className="LabelSelectDate LabelTemp">Email Id <FontAwesomeIcon icon={faEnvelope} /> <span style={{ color: "red" }}>*</span> </div>
-                <div id="ClientNameRD" className="DateComponenrRD">
-                    <input id="InputClientNameRD" className="InputDateComponenrRDTemp" type="email" name="fname" placeholder="email@address.com" />
-                </div>
-            </div>
-
-            <div style={{flex:"0.5"}}>
-                <div className="LabelSelectDate LabelTemp">Mobile Number <FontAwesomeIcon icon={faPhone} /> <span style={{ color: "red" }}>*</span> </div>
-                <div id="ClientNameRD" className="DateComponenrRD">
-                    <div>
-                    <select id="DialCode" name="Occasion" className="InputDateComponenrRDTemp" style={{ color: "rgba(0,0,0,0.6)" , padding:"7px 0" ,fontSize:"14px" ,height:"100%" ,width:"60px"}} onChange={ChangrDialCode}>                        
-                        {countries.map((item) => {
-                            return (<option value={item.dial_code} style={{ color: "rgba(0,0,0,1)"}}>{item.dial_code} <div className="SONU">123</div></option>)
-                        })}
-                    </select>
+                <div >
+                    <div className="LabelSelectDate LabelTemp">Email Id <FontAwesomeIcon icon={faEnvelope} /> <span style={{ color: "red" }}>*</span> </div>
+                    <div id="ClientNameRD" className="DateComponenrRD">
+                        <input id="InputClientNameRD" className="InputDateComponenrRDTemp" type="email" name="fname" placeholder="email@address.com" />
                     </div>
-                    
-                    <input id="InputClientNameRD" className="InputDateComponenrRDTemp" type="tel" name="fname" placeholder="xxx-xxx-xxxx" pattern="[0-9]{10}" />
                 </div>
-            </div>
-            </div>
 
+                <div >
+                    <div className="LabelSelectDate LabelTemp">Mobile Number <FontAwesomeIcon icon={faPhone} /> <span style={{ color: "red" }}>*</span> </div>
+                    <div id="ClientNameRD" className="DateComponenrRD">
+                        <div>
+                        <ReactFlagsSelect
+                        selected={dial_code}
+                        onSelect={onDialCode}
+                        countries={contriesCode}
+                        placeholder="Code"
+                        customLabels={contryLabel}
+                        className="reactFlagClass"
+                        howOptionLabel={false}
+                        selectButtonClassName="reactFlagClassButton"
+                        />
 
-            <div style={{ display: "flex", gap: "20px" }}>
-            <div style={{flex:"0.5"}}>
-                <div className="LabelSelectDate LabelTemp">Occasion</div>
-                <div id="OccasionRD" className="DateComponenrRD">
-                    <select id="Occasion" name="Occasion" className="InputDateComponenrRDTemp" style={{ color: "rgba(0,0,0,0.6)" }} onChange={ChangeOccasion}>
-                        <option value="" disabled selected >Select Occasion</option>
-                        <option value="Birthday" style={{ color: "rgba(0,0,0,1)" }}>Birthday</option>
-                        <option value="Anniversary" style={{ color: "rgba(0,0,0,1)" }}>Anniversary</option>
-                        <option value="other" style={{ color: "rgba(0,0,0,1)" }}>other</option>
-                    </select>
+                        </div>
+
+                        <input id="InputClientNameRD" className="InputDateComponenrRDTemp" type="tel" name="fname" placeholder="xxx-xxx-xxxx" pattern="[0-9]{10}" />
+                    </div>
                 </div>
-            </div>
 
-            <div style={{flex:"0.5"}}>
-                <div className="LabelSelectDate LabelTemp">Date Of Birth</div>
-                <div id="DateComponenrRD" className="DateComponenrRD">
-                    <input id="InputDOBComponenrRD" className="InputDateComponenrRDTemp" type="text" name="fname" placeholder="Select Date Of Birth" />
-                    <div className="CalenderIconDateComponenrRD" onClick={() => { onfocusDate(dob, SetDob) }} ><FontAwesomeIcon icon={faCalendarAlt} /></div>
+
+                <div>
+                    <div className="LabelSelectDate LabelTemp">Occasion</div>
+                    <div id="OccasionRD" className="DateComponenrRD">
+                        <select id="Occasion" name="Occasion" className="InputDateComponenrRDTemp" style={{ color: "rgba(0,0,0,0.6)" }} onChange={ChangeOccasion}>
+                            <option value="" disabled selected >Select Occasion</option>
+                            <option value="Birthday" style={{ color: "rgba(0,0,0,1)" }}>Birthday</option>
+                            <option value="Anniversary" style={{ color: "rgba(0,0,0,1)" }}>Anniversary</option>
+                            <option value="other" style={{ color: "rgba(0,0,0,1)" }}>other</option>
+                        </select>
+                    </div>
                 </div>
-            </div>
 
-            </div>
+                <div>
+                    <div className="LabelSelectDate LabelTemp">Date Of Birth</div>
+                    <div id="DateComponenrRD" className="DateComponenrRD">
+                        <input id="InputDOBComponenrRD" className="InputDateComponenrRDTemp" type="text" name="fname" placeholder="Select Date Of Birth" />
+                        <div className="CalenderIconDateComponenrRD" onClick={() => { onfocusDate(dob, SetDob) }} ><FontAwesomeIcon icon={faCalendarAlt} /></div>
+                    </div>
+                </div>
+
 
             <div>
                 <div className="LabelSelectDate LabelTemp">Address</div>
@@ -94,18 +113,22 @@ function ClientDetails() {
             <div >
                 <div className="LabelSelectDate LabelTemp">Select Country</div>
                 <div id="OccasionRD" className="DateComponenrRD">
-                    <select id="SelectCountry" name="Occasion" className="InputDateComponenrRDTemp" style={{ color: "rgba(0,0,0,0.6)" }} onChange={() => { OnChangeCountry(SetCountry) }}>
-                        <option value="" disabled selected >Select Country</option>
-                        {countries.map((item) => {
-                            return (<option value={item.code} style={{ color: "rgba(0,0,0,1)" }}>{item.name}</option>)
-                        })}
-                    </select>
+                   
+                    <ReactFlagsSelect
+                        selected={select}
+                        onSelect={onSelect}
+                        countries={contriesCode}
+                        placeholder="Select Country"
+                        className="reactFlagClass"
+                        selectButtonClassName="reactFlagClassButtonTemp"
+                        
+                    />
                 </div>
             </div>
 
 
             <div style={{ display: "flex", gap: "20px" }}>
-                <div  >
+                <div style={{width: "-webkit-fill-available"}} >
                     <div className="LabelSelectDate LabelTemp">Select State</div>
                     <div id="ClientNameRD" className="DateComponenrRD">
                         <select id="SelectState" name="Occasion" className="InputDateComponenrRDTemp" style={{ color: "rgba(0,0,0,0.6)" }} onChange={OnChangeState}>
@@ -127,6 +150,15 @@ function ClientDetails() {
             </div>
 
 
+            <div>
+                <div className="LabelSelectDate LabelTemp">Note</div>
+                <div id="ClientNameRD" className="DateComponenrRD">
+                    {/* <input id="InputClientNameRD" className="InputDateComponenrRDTemp" type="text" name="fname" placeholder="Enter Address" /> */}
+                    <textarea className="InputDateComponenrRDTemp" name="w3review" rows="3" cols="50"></textarea>
+                </div>
+            </div>
+
+
 
 
         </div>
@@ -138,8 +170,7 @@ function OnChangeState() {
 }
 
 
-function ChangrDialCode()
-{
+function ChangrDialCode() {
     document.getElementById("DialCode").style.color = "black";
 }
 

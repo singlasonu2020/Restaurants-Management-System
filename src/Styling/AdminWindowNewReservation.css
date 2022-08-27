@@ -14,7 +14,9 @@
 {
     background-color: rgba(254, 219, 57, 0.2);
     padding:20px;
-    border-radius:5px
+    border-radius:5px;
+    min-width:30vw;
+    max-width: 95vw;
 }
 
 .NewReservationOption
@@ -31,6 +33,9 @@
     cursor: pointer;
     color: rgba(35, 41, 54,0.7);
     font-weight: 500;
+    width: inherit;
+    text-align: center;
+    /* font-size:14px; */
 }
 
 .NewReservationBottons:hover
@@ -50,6 +55,8 @@
     padding:20px;
     margin-top: 25px;
     background-color:white;
+    max-height: 60vh;
+    overflow-y: auto;
 }
 
 .NewReservationContainerTemp{
@@ -175,17 +182,74 @@ input[type=checkbox] {
     background-color: white;
 }
 
-.LabelTemp
+
+
+.ReactFlagsSelect-module_flagsSelect__2pfa2 
 {
-    font-weight:400;
+    width: inherit;
+    padding: 0;
+    border: none;
+
+} 
+
+.reactFlagClass
+{
+    padding:0 !important;
+   
+}
+.reactFlagClassButton
+{
+    border:none !important;
+    width:100px !important;
+    overflow: hidden;
 }
 
-select
+.reactFlagClassButton:focus
 {
+    outline: none !important;
 }
 
-.SONU *
+.reactFlagClassButtonTemp
 {
-        background-color: red;
+    border:none !important;
+    width: inherit  !important;
+    overflow: hidden;
+}
 
+.reactFlagClassButtonTemp:focus
+{
+    outline: none !important;
+}
+
+.NewReservationContainer::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    margin-top: 0;
+
+}
+
+.ReactFlagsSelect-module_selectOptions__3LNBJ::-webkit-scrollbar-track {
+    background: #f1f1f1 !important;
+    margin-top: 0 !important;
+
+}
+
+@media screen and (max-width: 800px) {
+    .NewReservationBottons
+    {
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 6000px) {
+    .NewReservationBottons
+    {
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .NewReservationBottons
+    {
+        font-size: 14px;
+    }
 }
