@@ -314,13 +314,13 @@ function FloorTableRender(RenderFloorNumber) {
         if (EditMapValue) {
             document.getElementById(`li${item.AddressNumber}`).style.backgroundColor = "black";
             const address = ReactDOM.createRoot(document.getElementById(`li${item.AddressNumber}`));
-            address.render(<Table NumberOfSeat={item.NumberOfSeat} TableNumber={item.TableNumber} FloorNumber={item.FloorNumber} DragStart={drag_start} ClickOnTable={ClickOnTable} />);
+            address.render(<Table NumberOfSeat={item.NumberOfSeat} TableNumber={item.TableNumber} FloorNumber={item.FloorNumber} DragStart={drag_start} ClickOnTable={ClickOnTable} SetRef={()=>{}} />);
 
         }
         else {
             document.getElementById(`li${item.AddressNumber}`).style.backgroundColor = "";
             const address = ReactDOM.createRoot(document.getElementById(`li${item.AddressNumber}`));
-            address.render(<Table NumberOfSeat={item.NumberOfSeat} TableNumber={item.TableNumber} />);
+            address.render(<Table NumberOfSeat={item.NumberOfSeat} TableNumber={item.TableNumber} SetRef={()=>{}} />);
 
         }
 

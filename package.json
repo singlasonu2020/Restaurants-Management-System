@@ -30,6 +30,7 @@
     "react-native-highlight-words": "^1.0.1",
     "react-native-web": "^0.18.1",
     "react-scripts": "5.0.1",
+    "react-select": "^5.4.0",
     "reactjs-mappletooltip": "^1.4.63",
     "upper-case-first": "^2.0.2",
     "uuid": "^8.3.2",

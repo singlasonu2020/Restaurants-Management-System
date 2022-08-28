@@ -233,6 +233,13 @@ input[type=checkbox] {
 
 }
 
+.SonuSingla
+{
+    display: flex;
+    gap: 25px;
+}
+
+
 @media screen and (max-width: 800px) {
     .NewReservationBottons
     {
@@ -252,4 +259,156 @@ input[type=checkbox] {
     {
         font-size: 14px;
     }
+}
+
+
+/* ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+
+
+
+
+
+
+
+
+
+.InputMutipleSelect
+{
+    border: 3px solid rgba(0, 0, 0, 0.5);
+    padding: 5px 10px ;
+    border-radius: 5px;
+    display:flex;
+    cursor: pointer;
+
+}
+
+
+
+
+
+.InputMutipleSelectIcon
+{
+    display:flex;
+    gap:8px;
+    align-items: center;
+    font-size:12px;
+
+}
+
+.VerticalLine
+{
+    border-left: 2px solid rgba(0, 0, 0, 0.4);
+    height: -webkit-fill-available;
+
+    
+}
+
+.OptionList
+{
+    display:none;
+    background-color: white;
+    margin-top:10px;
+    border: 2px solid rgba(35, 41, 54,0.7);
+    width: 100%;
+    border-radius:5px;
+    max-height:200px;
+    overflow: auto;
+    gap:5px;
+    background: linear-gradient(-90deg, rgba(254, 219, 57, 0.08) 1px, transparent 1px),linear-gradient(rgba(254, 219, 57, 0.08) 1px, transparent 1px),rgb(35, 41, 54);
+    background-size: 10px 10px,10px 10px;
+}
+
+.OptionList::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    margin-top: 0;
+
+}
+
+.OptionList li
+{
+    list-style:none;
+    padding:5px 10px;
+    display:flex;
+    cursor: pointer;
+    align-items: center;
+    font-size:14px;
+    color:white;
+}
+
+.OptionList li:hover
+{
+    background-color: rgba(254, 219, 57, 0.2);
+    color: white;
+}
+
+.OptionLabel
+{
+    flex:1;
+}
+
+.OptionLabelRight
+{
+    width: 20px;
+    height: 20px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    color:rgb(35, 41, 54);
+    font-size:12px;
+    font-weight: 800;
+
+
+}
+
+.OptionLabelLeft
+{
+    width: 20px;
+    height: 20px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    color:rgb(35, 41, 54);
+    margin-right:10px;
+    font-size:12px;
+    font-weight: 800;
+}
+
+.NoOptionContainer
+{
+    color: white;
+    text-align: center;
+    padding: 5px;
+}
+
+.SelectedTableClass
+{
+    display: flex;
+    gap: 5px;
+    font-size: 12px;
+    padding: 2px;
+    margin: 1px 2px;
+    font-weight: 700;
+    background-color: rgb(35, 41, 54,0.5);
+    cursor: auto;
+
+
+}
+
+.CroseIconSelectInput
+{
+    display: flex;
+    align-items: center;
+    padding: 2px;
+    cursor: pointer;
+}
+
+.CroseIconSelectInput:hover
+{
+    background-color: white;
 }
