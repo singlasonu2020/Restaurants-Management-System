@@ -8,9 +8,42 @@ import SelectTable from "./SelectTable"
 
 function NewReservation() {
     const [option, SetOption] = useState(0);
+    const [ReservationData, SetReservationData] = useState();
+    const [TableData, SetSetTableData] = useState();
+    const [ClientData, SetClientData] = useState();
+    const [PaymentData, SetPaymentData] = useState();
+   
+    let SaveDataFunCtion
+    const SetReservatioDataFunction = (fun)=>{
+        SaveDataFunCtion=fun;
+    }
+
+
+    const ClickOnSaveAndNext =()=>{
+        const data = SaveDataFunCtion();
+        switch (option) {
+            case 0:
+                SetReservationData(data);
+              break;
+            case 1:
+                SetSetTableData(data);
+              break;
+            case 2:
+                SetClientData(data);
+              break;
+            case 3:   
+              SetPaymentData(data);
+              break;
+           
+            
+        }
+        SetOption(option+1)
+    }
+
+
 
     useEffect(() => {
-        ClickButton(option,SetOption);
+        ClickButton(option,SetOption,ReservationData,TableData,SetReservatioDataFunction);
     })
 
     return (
@@ -30,7 +63,7 @@ function NewReservation() {
                 
                 <div className="ButtonForNewReservationDetails">
                    <div className="CancelBottonReservationDetails">Cancel</div>
-                   <div className="NextBottonReservationDetails" onClick={()=>{ SetOption(option+1) }}>Save & Next</div>
+                   <div className="NextBottonReservationDetails" onClick={()=>{ ClickOnSaveAndNext()}}>Save & Next</div>
                 </div>
 
 
@@ -50,8 +83,7 @@ function NewReservation() {
 
 
 
-function ClickButton(option,SetOption) {
-    console.log(option)
+function ClickButton(option,SetOption,ReservationData,TableData,SetReservatioDataFunction) {
     if(option>3)
     {
         SetOption(0);
@@ -66,12 +98,12 @@ function ClickButton(option,SetOption) {
     const root = ReactDOM.createRoot(document.getElementById("NewReservationContainer"));
     switch (option) {
         case 0:
-            root.render(<ReservationDetails />);
+            root.render(<ReservationDetails ReservationData={ReservationData}  SetReservatioDataFunction={SetReservatioDataFunction}/>);
             document.getElementById("ReservationDetails").classList.add("ClickNewReservationBottons");
 
           break;
         case 1:
-            root.render(<SelectTable />);
+            root.render(<SelectTable ReservationData={ReservationData} TableData={TableData} SetReservatioDataFunction={SetReservatioDataFunction}/>);
             document.getElementById("SelectTable").classList.add("ClickNewReservationBottons");
 
           break;
@@ -87,7 +119,7 @@ function ClickButton(option,SetOption) {
           break;
        
         
-      }
+    }
 
 }
 export default NewReservation;

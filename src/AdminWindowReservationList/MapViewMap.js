@@ -19,7 +19,7 @@ function MapViewMap(data) {
    
 
     useEffect(() => {
-        FloorTableRender(data.floorNumber,data.SetRef);        
+        FloorTableRender(data.floorNumber,data.SetRef,data.ClickOnTable);        
     })
 
     return (
@@ -57,9 +57,9 @@ function MakeArrayOfList() {
 }
 
 
-function FloorTableRender(RenderFloorNumber,SetRef) {
+function FloorTableRender(RenderFloorNumber,SetRef,ClickOnTable) {
 
-
+console.log(ClickOnTable);
 
     PreveusRender.forEach((item) => {
         document.getElementById(`li${item.AddressNumber}`).innerHTML = "";
@@ -72,6 +72,14 @@ function FloorTableRender(RenderFloorNumber,SetRef) {
     FloorTableData.forEach((item) => {
         PreveusRender.push(item);
 
+        if(ClickOnTable!=undefined)
+        {
+            document.getElementById(`li${item.AddressNumber}`).style.cursor="pointer";
+            document.getElementById(`li${item.AddressNumber}`).onclick=()=>{ClickOnTable(item)}
+            document.getElementById(`li${item.AddressNumber}`).style.backgroundColor="white";
+
+        }
+        
         const address = ReactDOM.createRoot(document.getElementById(`li${item.AddressNumber}`));
         address.render(<Table NumberOfSeat={item.NumberOfSeat} TableNumber={item.TableNumber} SetRef={SetRef} />);
 

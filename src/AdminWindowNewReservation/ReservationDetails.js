@@ -9,14 +9,40 @@ import InputClock from "../TimeInputClock/InputClock";
 
 
 
-function ReservationDetails() {
+function ReservationDetails(data) {
     const [date, SetDate] = useState();
     const FromTime = useRef();
     const ToTime = useRef();
+    const NOG = useRef();
+    const FT=useRef();
 
+    const ReservationData = data.ReservationData;
+
+    const SetData=()=>{
+        return(
+            {
+                Date:date,
+                FromTime:FromTime.current.value,
+                ToTime:ToTime.current.value,
+                NOG:NOG.current.value,
+                FT:FT.current.checked
+            }
+        )
+    }
+
+    data.SetReservatioDataFunction(SetData);
 
     useEffect(() => {
         PutDate(date)
+        if (ReservationData != undefined) {
+            SetDate(ReservationData.Date);
+            FromTime.current.value = ReservationData.FromTime;
+            ToTime.current.value = ReservationData.ToTime;
+            NOG.current.value = ReservationData.NOG;
+            FT.current.checked = ReservationData.FT;
+
+            
+        }
     })
 
     return (
@@ -30,7 +56,7 @@ function ReservationDetails() {
             </div>
 
             <div style={{ marginTop: "20px" }}>
-            <div className="LabelSelectDate">Select From Time</div>
+                <div className="LabelSelectDate">Select From Time</div>
                 <div id="DateComponenrRD" className="DateComponenrRD">
                     <input id="InputFromTime" ref={FromTime} className="InputDateComponenrRD" type="text" name="fname" placeholder="Select From Time" />
                     <div className="CalenderIconDateComponenrRD" onClick={() => { onfocusTime(FromTime) }} ><FontAwesomeIcon icon={faClock} /></div>
@@ -38,7 +64,7 @@ function ReservationDetails() {
             </div>
 
             <div style={{ marginTop: "20px" }}>
-            <div className="LabelSelectDate">Select To Time</div>
+                <div className="LabelSelectDate">Select To Time</div>
                 <div id="DateComponenrRD" className="DateComponenrRD">
                     <input id="InputToTime" ref={ToTime} className="InputDateComponenrRD" type="text" name="fname" placeholder="Select To Time" />
                     <div className="CalenderIconDateComponenrRD" onClick={() => { onfocusTime(ToTime) }} ><FontAwesomeIcon icon={faClock} /></div>
@@ -46,17 +72,17 @@ function ReservationDetails() {
             </div>
 
             <div style={{ marginTop: "20px" }}>
-            <div className="LabelSelectDate">Number of Guest</div>
+                <div className="LabelSelectDate">Number of Guest</div>
                 <div className="DateComponenrRD">
-                    <input className="InputNumberComponenrRD" type="number" name="fname" placeholder="Number of Guest" min="1" max="100" />
+                    <input ref={NOG} className="InputNumberComponenrRD" type="number" name="fname" placeholder="Number of Guest" min="1" max="100" />
                 </div>
             </div>
 
             <div style={{ marginTop: "20px" }}>
-                <input type="checkbox" id="" className="FlexibleWithTime" name="vehicle1" value="Flexible with Time" />
+                <input ref={FT} type="checkbox" id="" className="FlexibleWithTime" name="vehicle1"  value="true"  />
                 <label for="vehicle1" className="FlexibleWithTimeLabel">Flexible with Time</label><br />
             </div>
-           
+
 
 
         </div>
