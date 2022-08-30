@@ -11,9 +11,11 @@ function MutiDropDown(data) {
     const [OptionListOn, SetOptionListOn] = useState(false);
     const [OptionList, SetOptionList] = useState(data.array);
     const [SelectedList, SetSelectedList] = useState([]);
+    console.log(data.SelectedTableData);
 
 
     useEffect(() => {
+        
         openOption(OptionListOn,SelectedList);
     })
 

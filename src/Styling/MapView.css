@@ -75,7 +75,9 @@ input::-webkit-slider-thumb
 }
 
 
-.TableBookedClass:hover
+
+
+.selectedTable
 {
-    background-color:white;
+    background-color: green;
 }

@@ -15,6 +15,7 @@ var PreveusRender = [];
 function MapViewMap(data) {
 
    
+   
 
    
 
@@ -48,7 +49,7 @@ function MakeArrayOfList() {
     for (let i = 0; i < 14000; i++) {
 
 
-        array.push(<li id={`li${i}`} style={{ float: "left", width: "10px", height: "10px", border: "0.3px solid rgb(35,41,54,0.2)" }} ></li>)
+        array.push(<li id={`li${i}`} className="LiTags" style={{ float: "left", width: "10px", height: "10px", border: "0.3px solid rgb(35,41,54,0.2)" }} ></li>)
 
 
     }
@@ -59,10 +60,14 @@ function MakeArrayOfList() {
 
 function FloorTableRender(RenderFloorNumber,SetRef,ClickOnTable) {
 
-console.log(ClickOnTable);
 
     PreveusRender.forEach((item) => {
         document.getElementById(`li${item.AddressNumber}`).innerHTML = "";
+        document.getElementById(`li${item.AddressNumber}`).style.backgroundColor = "transparent";
+        document.getElementById(`li${item.AddressNumber}`).style.cursor="";
+        document.getElementById(`li${item.AddressNumber}`).onclick="";
+
+
     })
 
     PreveusRender = [];
@@ -77,11 +82,10 @@ console.log(ClickOnTable);
             document.getElementById(`li${item.AddressNumber}`).style.cursor="pointer";
             document.getElementById(`li${item.AddressNumber}`).onclick=()=>{ClickOnTable(item)}
             document.getElementById(`li${item.AddressNumber}`).style.backgroundColor="white";
-
         }
         
         const address = ReactDOM.createRoot(document.getElementById(`li${item.AddressNumber}`));
-        address.render(<Table NumberOfSeat={item.NumberOfSeat} TableNumber={item.TableNumber} SetRef={SetRef} />);
+        address.render(<Table NumberOfSeat={item.NumberOfSeat} TableNumber={item.TableNumber} SetRef={SetRef} Data={item}/>);
 
 
 

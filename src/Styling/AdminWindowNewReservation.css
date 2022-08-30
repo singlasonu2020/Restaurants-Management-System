@@ -482,3 +482,18 @@ input[type=checkbox] {
     justify-content: center;
     align-items: center;
 }
+
+.SaveAndNext
+{
+    font-size: 12px;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    background-color: rgb(19,111,12);
+    color: white;
+    font-weight: 600;
+    border-radius: 5px;
+    cursor: pointer;
+}

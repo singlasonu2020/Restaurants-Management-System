@@ -15,7 +15,7 @@ function Table(data) {
         let element = document.getElementById(data.TableNumber);
         element.addEventListener("dragstart" , (event)=>{data.DragStart(event)});
         element.addEventListener("click" , (event)=>{data.ClickOnTable(data.TableNumber,data.NumberOfSeat,data.FloorNumber)});
-        data.SetRef(data.TableNumber,TableRef);
+        data.SetRef(data.Data,TableRef);
 
     })
 
