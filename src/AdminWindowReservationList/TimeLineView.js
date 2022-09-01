@@ -4,7 +4,7 @@ import FloorNumberView from "./FloorNumberview"
 import TableView from "./TableView";
 import "../Styling/AdminWindowReservationList.css";
 
-function TimeLineView() {
+function TimeLineView(data) {
   const [Timing, SetTiming] = useState({
     StartTime: "07:30",
     EndTime: "23:30"
@@ -422,7 +422,7 @@ function TimeLineView() {
 
       <TimeLine color="White" Timing={Timing} />
       <div style={{overflowY:"auto"}}>
-      {TableData.map(item=>FloorInsert(item,Timing))}
+      {TableData.map(item=>FloorInsert(item,Timing,data.SelectedTableData))}
       </div>
 
     </div>
@@ -431,21 +431,21 @@ function TimeLineView() {
 }
 
 
-function FloorInsert(FloorData,Timing)
+function FloorInsert(FloorData,Timing,SelectedTableData)
 {
   const ReturnArray = [];
   ReturnArray.push(<FloorNumberView FloorNumber={FloorData.FloorNumber}/>);
   const TablesData = FloorData.FloorTableData;
   console.log(TablesData);
   const color = ["rgb(255,255,255)","rgb(255,255,255,0.1)"];
-  const TableInsertData = TablesData.map((item,index)=>TableInsert(item,Timing,color,index))
+  const TableInsertData = TablesData.map((item,index)=>TableInsert(item,Timing,color,index,SelectedTableData))
   return ReturnArray.concat(TableInsertData);
 
 }
 
 
-function TableInsert(TableData,Timing,color,index)
+function TableInsert(TableData,Timing,color,index,SelectedTableData)
 {
-   return <TableView Timing={Timing} Data={TableData} color={color[index%2]} />
+   return <TableView Timing={Timing} Data={TableData} color={color[index%2]} SelectedTableData={SelectedTableData}/>
 }
 export default TimeLineView;

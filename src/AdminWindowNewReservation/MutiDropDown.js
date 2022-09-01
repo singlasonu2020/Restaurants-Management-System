@@ -9,87 +9,83 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function MutiDropDown(data) {
     const [OptionListOn, SetOptionListOn] = useState(false);
-    const [OptionList, SetOptionList] = useState(data.array);
+    const [OptionList, SetOptionList] = useState([]);
     const [SelectedList, SetSelectedList] = useState([]);
-    console.log(data.SelectedTableData);
+
+
+
 
 
     useEffect(() => {
-        
-        openOption(OptionListOn,SelectedList);
+        openOption(OptionListOn, SelectedList);
+        SetSelectedList(() => data.SelectedTableData);
+        SetOptionList(() => data.array);
     })
 
 
     const LiComponent = (item) => {
         return (
             <li onClick={() => { ClickOnOption(item) }}>
-                <div className="OptionLabelLeft">{item.FN}</div>
-                <div className="OptionLabel">TableNo-{item.TN}</div>
-                <div className="OptionLabelRight">{item.CA}</div>
+                <div className="OptionLabelLeft">{item.FloorNumber}</div>
+                <div className="OptionLabel">TableNo-{item.TableNumber}</div>
+                <div className="OptionLabelRight">{item.NumberOfSeat}</div>
             </li>
         )
     }
 
     const ClickOnOption = (item) => {
-        console.log(item);
-        SetSelectedList(oldArray => [...oldArray, item]);
-        SetOptionList(OptionList.filter((e) => { return e.TI != item.TI }))
+        data.SetSelectedTableData(oldArray => [...oldArray, item]);
+ 
     }
 
 
-   const OptionListComponent=(OptionList)=>{
+    const OptionListComponent = (OptionList) => {
 
         if (OptionList.length == 0) {
-            console.log("hello");
             return <div className="NoOptionContainer">No Option</div>
-    
+
         }
         else {
             return OptionList.map((item) => { return LiComponent(item) })
         }
-    
+
     }
 
-    const OnClickCrossOne =(item)=>{
-        SetSelectedList(SelectedList.filter((e) => { return e.TI != item.TI }));
-        SetOptionList([...OptionList, item]);
+    const OnClickCrossOne = (item) => {
+        data.SetSelectedTableData( data.SelectedTableData.filter((e) => { return e.TableNumber != item.TableNumber }));
     }
 
-    const SelectedListComponent = (selectList)=>{
-        if(selectList.length==0)
-        {
+    const SelectedListComponent = (selectList) => {
+        if (selectList.length == 0) {
             return "Select Table"
         }
 
-        else
-        {
-           return selectList.map((item)=>{
-                return(<div className="SelectedTableClass"><div>Table No. - {item.TN}</div> <div className="CroseIconSelectInput"><FontAwesomeIcon  icon={faTimes} onClick={()=>{OnClickCrossOne(item)}} /></div></div>);
+        else {
+            return selectList.map((item) => {
+                return (<div className="SelectedTableClass"><div>Table No. - {item.TableNumber}</div> <div className="CroseIconSelectInput"><FontAwesomeIcon icon={faTimes} onClick={() => { OnClickCrossOne(item) }} /></div></div>);
             })
         }
     }
 
-    const OnClickOnCrossAll = ()=>{
-        SetSelectedList([]);
-        SetOptionList(oldArray => [...oldArray, ...SelectedList])
+    const OnClickOnCrossAll = () => {
+        data.SetSelectedTableData([]);
     }
 
-    const openOfClick=(e)=>{ 
-       if(e.target.id=="InputMutipleSelectInput")
-       {
-        SetOptionListOn(!OptionListOn)
+    const openOfClick = (e) => {
+        if (e.target.id == "InputMutipleSelectInput") {
+            SetOptionListOn(!OptionListOn)
 
-       }
+        }
     }
     return (
         <div>
             <div className="InputMutipleSelect">
-                <div id="InputMutipleSelectInput"style={{ display: "flex" ,flex:"1" ,flexWrap: "wrap",maxWidth: "400px"}} onClick={(e) => { openOfClick(e) }}>{SelectedListComponent(SelectedList)}</div>
+                <div id="InputMutipleSelectInput" style={{ display: "flex", flex: "1", flexWrap: "wrap", maxWidth: "400px" }} onClick={(e) => { openOfClick(e) }}>{SelectedListComponent(SelectedList)}</div>
                 <div className="InputMutipleSelectIcon">
-                    <FontAwesomeIcon id="IconCrossInputMutipleSelect" icon={faTimes} onClick={()=>{OnClickOnCrossAll()}} />
+                    <FontAwesomeIcon id="IconCrossInputMutipleSelect" icon={faTimes} onClick={() => { OnClickOnCrossAll() }} />
                     <span className="VerticalLine"></span>
-                    <FontAwesomeIcon id="IconDownInputMutipleSelect" icon={faAngleDown}   onClick={() => { SetOptionListOn(!OptionListOn) }}/>
-                    <FontAwesomeIcon id="IconUpInputMutipleSelect" icon={faAngleUp}  onClick={() => { SetOptionListOn(!OptionListOn) }}  />
+                    <FontAwesomeIcon id="IconDownInputMutipleSelect" icon={faAngleDown} onClick={() => { SetOptionListOn(!OptionListOn) }} />
+                    <FontAwesomeIcon id="IconUpInputMutipleSelect" icon={faAngleUp} onClick={() => { SetOptionListOn(!OptionListOn) }} />
                 </div>
             </div>
             <div id="OptionList" className="OptionList">
@@ -101,7 +97,7 @@ function MutiDropDown(data) {
 }
 
 
-function openOption(openOption,SelectedList) {
+function openOption(openOption, SelectedList) {
     if (openOption) {
         document.getElementById("IconCrossInputMutipleSelect").style.display = "block";
         document.getElementById("IconDownInputMutipleSelect").style.display = "none";
@@ -111,8 +107,7 @@ function openOption(openOption,SelectedList) {
 
     }
     else {
-        if(SelectedList.length==0)
-        {
+        if (SelectedList.length == 0) {
             document.getElementById("IconCrossInputMutipleSelect").style.display = "none";
 
         }

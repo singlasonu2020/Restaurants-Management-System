@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import MutiDropDown from "./MutiDropDown";
 import MapView from "../AdminWindowReservationList/MapView";
 import { Sa } from "react-flags-select";
+import TimeLine from "../AdminWindowReservationList/TimeLineView"
 
 
 
@@ -14,9 +15,7 @@ function SelectTable(data) {
 
 
     const ReservationData = data.ReservationData;
-    // let SelectedTable = [];
     const Filixeble = () => {
-        console.log(ReservationData.FT);
         if (ReservationData.FT)
             return (<span style={{ fontSize: "11px", margin: "auto 8px" }}>Flexible</span>);
         else
@@ -24,23 +23,45 @@ function SelectTable(data) {
     }
 
 
+    let fun;
 
     const CloseView = (Save, SetSelectedTableData) => {
-        if (!Save) {
-            SetSelectedTableData(()=>[]);
+        if (Save) {
+            const aa = fun();
+            SetSelectedTableData(() => aa.TaleData);
         }
 
         const UpperUpperDiv = ReactDOM.createRoot(document.getElementById("UpperUpperDiv"));
         UpperUpperDiv.render(<div></div>)
     }
 
-
-
+    const array = [{ TableNumber: "1", AddressNumber: "200", FloorNumber: "1", NumberOfSeat: "3" }, { TableNumber: "2", AddressNumber: "800", FloorNumber: "1", NumberOfSeat: "4" }, { TableNumber: "3", AddressNumber: "300", FloorNumber: "2", NumberOfSeat: "2" }, { TableNumber: "4", AddressNumber: "2200", FloorNumber: "2", NumberOfSeat: "5" }];
 
     const SetReservationDate = () => {
 
         const [SelectedTableData, SetSelectedTableData] = useState([]);
+        let ArrayTemp = () => {
+            return array.filter((e) => {
+                return !includes(SelectedTableData, e);
+            })
+        }
 
+        const includes = (arr, e) => {
+            for (let index = 0; index < arr.length; index++) {
+                if (arr[index].TableNumber == e.TableNumber) {
+                    return true;
+                }
+            }
+            return false;
+        }
+
+        const SetFun=(f)=>{
+            fun=f;
+        }
+        const FromMin = ReservationData.FromTime.substring(0,2)*60+ReservationData.FromTime.substring(3)*1;
+        const ToMin = ReservationData.ToTime.substring(0,2)*60+ReservationData.ToTime.substring(3)*1;
+        console.log(FromMin);
+        console.log(ToMin);
         if (ReservationData != undefined) {
             return (
                 <div>
@@ -49,11 +70,14 @@ function SelectTable(data) {
                         <div className="SelectTableReservationDataTime">{ReservationData.FromTime}-{ReservationData.ToTime} {Filixeble()}</div>
                     </div>
 
-                    <MutiDropDown array={array} SelectedTableData={SelectedTableData} />
+                    <MutiDropDown array={ArrayTemp()} SelectedTableData={SelectedTableData} SetSelectedTableData={SetSelectedTableData} />
+                    <div id="PossibleOption">
+
+                    </div>
                     <div className="ViewOptionClasses">
-                        <div className="ViewOptionClassesOption">Posible Option</div>
-                        <div className="ViewOptionClassesOption">Time Line View</div>
-                        <div className="ViewOptionClassesOption" onClick={() => { OnClickOnMapView(CloseView, SelectedTableData, SetSelectedTableData) }}>Map View</div>
+                        <div className="ViewOptionClassesOption" onClick={() => { ClickOnPossibleOption(SetSelectedTableData) }}> Best Possible Option</div>
+                        <div className="ViewOptionClassesOption" onClick={() => { ClickOnTimeLineView(SelectedTableData) }} >Time Line View</div>
+                        <div className="ViewOptionClassesOption" onClick={() => { OnClickOnMapView(CloseView, SelectedTableData, SetSelectedTableData,FromMin,ToMin,SetFun) }}>Map View</div>
                     </div>
 
                 </div>
@@ -66,17 +90,6 @@ function SelectTable(data) {
 
     }
 
-    const array = [
-        { TN: "3", FN: "2", CA: "10", TI: "123" },
-        { TN: "2", FN: "2", CA: "5", TI: "124" },
-        { TN: "1", FN: "2", CA: "10", TI: "125" },
-        { TN: "4", FN: "1", CA: "8", TI: "126" },
-        { TN: "8", FN: "1", CA: "10", TI: "127" },
-        { TN: "10", FN: "1", CA: "7", TI: "128" },
-        { TN: "11", FN: "1", CA: "10", TI: "129" },
-        { TN: "12", FN: "1", CA: "6", TI: "120" },
-        { TN: "14", FN: "2", CA: "9", TI: "121" }
-    ]
 
     return (
 
@@ -86,11 +99,10 @@ function SelectTable(data) {
     )
 }
 
-function OnClickOnMapView(CloseView, SelectedTable, SetSelectedTableData) {
-    console.log("GGGGGGG");
+function OnClickOnMapView(CloseView, SelectedTable, SetSelectedTableData,FromMin,ToMin,SetFun) {
     const UpperUpperDiv = ReactDOM.createRoot(document.getElementById("UpperUpperDiv"));
     UpperUpperDiv.render(<div className="ViewShowNewReservation">
-        <MapView ET={500} ST={550} SelectTable={true} SelectedTable={SelectedTable} SetSelectedTableData={SetSelectedTableData} />
+        <MapView ET={ToMin} ST={FromMin} SelectTable={true} SelectedTable={SelectedTable} SetFun={SetFun} />
         <div>
             <FontAwesomeIcon icon={faWindowClose} style={{ color: "rgb(247,73,89)", fontSize: "60px", cursor: "pointer" }} onClick={() => { CloseView(false, SetSelectedTableData) }} />
             <div className="SaveAndNext" onClick={() => { CloseView(true, SetSelectedTableData) }}>Save & Close</div>
@@ -99,8 +111,60 @@ function OnClickOnMapView(CloseView, SelectedTable, SetSelectedTableData) {
     </div>);
 }
 
+function ClickOnPossibleOption(SetSelectedTableData) {
+    
+    const PossibleOptionTemp = ReactDOM.createRoot(document.getElementById("UpperUpperDiv"));
+    PossibleOptionTemp.render(PosiibleOptionComponent(SetSelectedTableData));
+}
+
+function PosiibleOptionComponent(SetSelectedTableData) {
+
+
+    const ClickOnOption =(item)=>{
+        SetSelectedTableData(item);
+        ClickOnCanCell();
+    }
+
+    const ListOfPossibleOption = [[{ TableNumber: "1", AddressNumber: "200", FloorNumber: "1", NumberOfSeat: "3" }, { TableNumber: "2", AddressNumber: "800", FloorNumber: "1", NumberOfSeat: "4" }], [{ TableNumber: "1", AddressNumber: "200", FloorNumber: "1", NumberOfSeat: "3" }, { TableNumber: "2", AddressNumber: "800", FloorNumber: "1", NumberOfSeat: "4" }], [{ TableNumber: "1", AddressNumber: "200", FloorNumber: "1", NumberOfSeat: "3" }, { TableNumber: "2", AddressNumber: "800", FloorNumber: "1", NumberOfSeat: "4" }], [{ TableNumber: "1", AddressNumber: "200", FloorNumber: "1", NumberOfSeat: "3" }, { TableNumber: "2", AddressNumber: "800", FloorNumber: "1", NumberOfSeat: "4" }]]
+    return (
+        <div className="ReturnPostionOptionComponentMain">
+            <div className="ReturnPostionOptionComponent" >
+                <div className="PossibleHeadingClass">
+                    <div className="PossibleHeadingClassHeading">Possible Best Option</div>
+                    <FontAwesomeIcon icon={faWindowClose} style={{ color: "rgb(247,73,89)", cursor: "pointer" }} onClick={ClickOnCanCell} />
+                </div>
+                {ListOfPossibleOption.map((item) => {
+
+                    return (
+                        <li className="ClassForPosibleOption" onClick={()=>{ClickOnOption(item)}}>{item.map((e) => {
+                            return <div>TableNumber-{e.TableNumber}</div>
+                        })}</li>)
+                })}
+            </div>
+        </div>
+    )
+}
+
+
+function ClickOnCanCell()
+{
+    const PossibleOptionTemp = ReactDOM.createRoot(document.getElementById("UpperUpperDiv"));
+    PossibleOptionTemp.render(<div></div>);
+}
 
 
 
+function ClickOnTimeLineView(SelectedTableData)
+{
+    const UpperUpperDiv = ReactDOM.createRoot(document.getElementById("UpperUpperDiv"));
+    UpperUpperDiv.render(<div className="ViewShowNewReservation">
+        
+        <div className="TimeLineContainer"><TimeLine Date={new Date()} SelectedTableData={SelectedTableData}/></div>
+        <div>
+            <FontAwesomeIcon icon={faWindowClose} style={{ color: "rgb(247,73,89)", fontSize: "60px", cursor: "pointer" }} onClick={() => { ClickOnCanCell()}} />
+        </div>
+
+    </div>);
+}
 
 export default SelectTable;

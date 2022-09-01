@@ -10,8 +10,23 @@ function TableView(data) {
     const EndTime = Timing.EndTime;
     const gridTemplateColumnsValueArray = ["160px"];
 
+    console.log(data.SelectedTableData);
+    const CheckTableSelectEd = ()=>{
+        for (let index = 0; index < data.SelectedTableData.length; index++) {
+            const element = data.SelectedTableData[index];
+            
+            if(element.TableNumber==data.Data.TBN)
+            {
+                return "rgb(19 111 12 / 30%)";
 
+            }
+            
+        }
 
+        return data.color;
+        
+    }
+    
 
     useEffect(() => {
         let gridTemplateColumnsValue = "";
@@ -24,7 +39,7 @@ function TableView(data) {
 
 
     return (
-        <div id={`TableViewReturnDiv${data.Data.TBN}`} className="TableViewReturnDiv" style={{ backgroundColor: data.color }}>
+        <div id={`TableViewReturnDiv${data.Data.TBN}`} className="TableViewReturnDiv" style={{ backgroundColor: CheckTableSelectEd() }}>
             <div className="TableNameRowSideTBN"> 
             <div>Table {data.Data.TBN}</div>
             <div style={{color:BrighterColor(),fontWeight:500}}>{(data.Data.capacity-data.Data.capacity%3)/3}-{data.Data.capacity}</div>
@@ -36,7 +51,6 @@ function TableView(data) {
 }
 
 function InsertTable(ST, ET, gridTemplateColumnsValueArray, ArrayOfData) {
-    console.log(ArrayOfData);
     let StartTime = ST.substring(0, 2) * 60 - 30;
     let EndTimeHrs = ET.substring(0, 2);
     let EndTimeMin = ET.substring(3);
