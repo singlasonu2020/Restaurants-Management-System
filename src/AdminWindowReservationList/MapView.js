@@ -1,8 +1,10 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, {  useState, useContext } from "react";
 import ReactDOM from "react-dom/client";
 import "../Styling/MapView.css"
 import MapViewTimeLine from "./MapViewTimeLine";
 import MapViewMap from "./MapViewMap";
+import ReservationListData from "./UseContext";
+
 
 
 let ListRef = [];
@@ -22,9 +24,14 @@ function CheckBooking(startTimeTemp, endTimeTemp, TableNumber) {
 
 function MapView(data) {
 
-    // let SelectedTable = data.SelectedTable;
-    // let SetSelectedTable = data.SetSelectedTableData
-     const [SelectedTable,SetSelectedTable] = useState(data.SelectedTable);
+    const temp = useContext(ReservationListData);
+    if(Object.keys(data).length==0)
+    data= temp;
+    
+
+
+    const [SelectedTable,SetSelectedTable] = useState(data.SelectedTable);
+   
     let NewTimigHrs = new Date().getHours();
     const NewTimigMin = new Date().getMinutes();
     const Timing = { StartTime: "07:00", EndTime: "24:00" };
@@ -41,7 +48,11 @@ function MapView(data) {
 
     }
 
-    data.SetFun(SetfUNCTION);
+    if(data.SetFun!=undefined)
+    {
+        data.SetFun(SetfUNCTION);
+    }
+
 
     if (data.ST != undefined) {
         startTimeTemp = data.ST;
@@ -57,6 +68,7 @@ function MapView(data) {
     const [floorNumber, SetFloorNumber] = useState(1);
 
     const Set = (val, from) => {
+        console.log("hello");
         if (from == "Min") {
             startTimeTemp = val;
         }
@@ -67,6 +79,8 @@ function MapView(data) {
         const root = ReactDOM.createRoot(document.getElementById("TimeShow"));
         root.render(TimeShowfUN(startTimeTemp, endTimeTemp));
         TableBookingData(startTimeTemp, endTimeTemp);
+        console.log("hello1");
+
     }
 
 
@@ -74,7 +88,12 @@ function MapView(data) {
 
         let TableNumber = TableData.TableNumber;
         let check = CheckBooking(startTimeTemp, endTimeTemp, TableNumber);
-        let CheckSelectedA = includes(SelectedTable, TableData);
+        let CheckSelectedA =false
+
+        if(data.SelectTable)
+        {
+            CheckSelectedA=includes(SelectedTable, TableData);
+        }
 
         if (check) {
             TableRef.current.classList.add("TableBookedClass");
@@ -110,26 +129,16 @@ function MapView(data) {
 
             else if (a) {
                 SetSelectedTable(SelectedTable.filter(e => e.TableNumber !== item.TableNumber));
-                // ListRef.forEach((e) => {
-                //     if (e.TableNumber == item.TableNumber) {
-                //         e.TableRef.current.classList.remove("selectedTable");
-                //     }
-                // })
-                // window.alert("Remove From Selected Tables");
             }
             else {
-
                 SetSelectedTable(oldArray => [...oldArray, item]);
-                // ListRef.forEach((e) => {
-                //     if (e.TableNumber == item.TableNumber) {
-                //         e.TableRef.current.classList.add("selectedTable");
-                //     }
-                // })
-                // window.alert(`Table No. ${item.TableNumber} is Select Thanks`);
-                console.log(SelectedTable);
-
-
             }
+        }
+
+        else
+        {
+            let check = CheckBooking(startTimeTemp, endTimeTemp, item.TableNumber);
+            window.alert(`You Click on Table nUmber ${item.TableNumber} --- ${check} `);
         }
 
     }
@@ -144,9 +153,6 @@ function MapView(data) {
             <div style={{ width: "100%", display: "flex", backgroundColor: "white" }}>
                 <div style={{ display: "flex", flex: "0.5" }}>{FloorOptionFuntion(floorNumber, SetFloorNumber)}</div>
                 <div id="TimeShow" className="TimeShow">
-
-
-
                     {TimeShowfUN(startTimeTemp, endTimeTemp)}
                 </div>
             </div>

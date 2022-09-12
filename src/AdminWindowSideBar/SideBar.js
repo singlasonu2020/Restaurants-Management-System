@@ -1,4 +1,4 @@
-import React ,{useEffect} from "react";
+import React from "react";
 import ReactDOM from "react-dom/client";
 import SideBarOption from "./SideBarOption";
 import { faThLarge } from "@fortawesome/free-solid-svg-icons";
@@ -7,40 +7,60 @@ import { faCutlery } from "@fortawesome/free-solid-svg-icons";
 import { faAngleLeft } from "@fortawesome/free-solid-svg-icons";
 import { faAngleDown } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import WorkingTime from "../AdminWindowWorkingTime/WorkingTime"
-import SeatMap from "../AdminWindowSeatMap/SeatMap"
-import AddSchedule from "../AdminWindowSchedule/Schedule";
-import ReservationList from "../AdminWindowReservationList/ReservationList";
-import NewReservation from "../AdminWindowNewReservation/NewReservation";
 import "../Styling/AdminWindowSideBar.css";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+
+
 
 
 let OpenOptionOfRestaurantValue = false;
 let OpenOptionOfReservationsValue = false;
 
-function OnClickAnyWhereWhenSideBarIsOpen(e){
-  if (!document.getElementById('AdminWindowSideBar').contains(e.target)){
-    console.log("hello from side bar else");
-      document.getElementById("AdminWindowSideBar").innerHTML="";
-      OpenOptionOfRestaurantValue = false;
- OpenOptionOfReservationsValue = false;
-
-      window.removeEventListener('click',OnClickAnyWhereWhenSideBarIsOpen);
-  } 
-}
-
-
 
 //Main Function Render
-function SideBar() {
-  useEffect(()=>{
-    setTimeout(() => {
-      window.addEventListener('click',OnClickAnyWhereWhenSideBarIsOpen)
+function SideBar(data) {
+  const navigate = useNavigate();
 
-    }, 1)}
-  );
+ 
+  const AdminSideBarOnClickOnWorkingTime=()=>
+  {
+    navigate("/admin_window/working_time");
+  }
+
+  const AdminSideBarOnClickOnSeatMap=()=>
+  {
+    navigate({pathname:"/admin_window/seat_map",
+    search: `?floorId=${"1"}`})
+  }
+
+  const AdminSideBarOnClickOnSchedule=()=>
+  {
+    navigate("/admin_window/add_schedule")
+  }
+
+  const AdminSideBarOnClickOnReservationList=()=>
+  {
+    navigate("/admin_window/reservation_list")
+  }
+
+  const AdminSideBarOnClickOnNewReservation=()=>
+  {
+    navigate("/admin_window/new_reservation")
+  }
+
+  const AdminSideBarOnClickOnDashBoard=()=>
+  {
+    navigate("/admin_window/dash_board")
+  }
+
+
+  
+  useEffect(()=>{
+
+  },[])
   return (
-    <div id="AminWindowSideBar">
+    <div id="AminWindowSideBar" className="DisplayNone" ref={data.NavBarRef}>
       <div id="AdminWindowSideBarCompanyDetails">
         <img
           src="/img/logo.png"
@@ -53,7 +73,7 @@ function SideBar() {
       </div>
 
       <div id="AdminWindowSideBarOption">
-        <SideBarOption Name={"Dashboard"} Icon={faThLarge} />
+        <SideBarOption Name={"Dashboard"} Icon={faThLarge} OnClickFunction={AdminSideBarOnClickOnDashBoard}/>
         <SideBarOption
           Name={"Reservations"}
           Icon={faList}
@@ -110,7 +130,6 @@ function OpenMoreOptionInsideOption(OnClickElement, ArrayOfInsideItem ) {
       break;
   }
 }
-
 
 function OpenOptionOfRestaurantOn(OnClickElement, ArrayOfInsideItem) {
   console.log(ArrayOfInsideItem);
@@ -190,63 +209,5 @@ function CloseAllOtherOption() {
   OpenOptionOfReservationsValue = false;
 }
 
-function AdminSideBarOnClickOnWorkingTime()
-{
- 
-  const RenderWorkingTimeElement = ReactDOM.createRoot(
-    document.getElementById(
-      "AdminWindowContaintBar"
-    )
-  );
-  RenderWorkingTimeElement.render(<WorkingTime/>)
-  document.getElementById("AdminWindowSideBar").innerHTML="";
 
-}
-
-function AdminSideBarOnClickOnSeatMap() {
-  
-  const RenderWorkingTimeElement = ReactDOM.createRoot(
-    document.getElementById(
-      "AdminWindowContaintBar"
-    )
-  );
-  RenderWorkingTimeElement.render(<SeatMap/>)
-  document.getElementById("AdminWindowSideBar").innerHTML="";
-}
-
-function AdminSideBarOnClickOnSchedule() {
-  const RenderWorkingTimeElement = ReactDOM.createRoot(
-    document.getElementById(
-      "AdminWindowContaintBar"
-    )
-  );
-  RenderWorkingTimeElement.render(<AddSchedule/>)
-  document.getElementById("AdminWindowSideBar").innerHTML="";
-  
-}
-
-function AdminSideBarOnClickOnReservationList() {
-  const RenderWorkingTimeElement = ReactDOM.createRoot(
-    document.getElementById(
-      "AdminWindowContaintBar"
-    )
-  );
-  RenderWorkingTimeElement.render(<ReservationList/>)
-  document.getElementById("AdminWindowSideBar").innerHTML="";
-  document.getElementById("AdminWindowContaintBar").style.display = "fixed";
-  
-}
-
-
-function AdminSideBarOnClickOnNewReservation()
-{
-  const RenderWorkingTimeElement = ReactDOM.createRoot(
-    document.getElementById(
-      "AdminWindowContaintBar"
-    )
-  );
-  RenderWorkingTimeElement.render(<NewReservation/>)
-  document.getElementById("AdminWindowSideBar").innerHTML="";
-  document.getElementById("AdminWindowContaintBar").style.display = "fixed";
-}
-export  {SideBar ,AdminSideBarOnClickOnNewReservation};
+export  {SideBar };

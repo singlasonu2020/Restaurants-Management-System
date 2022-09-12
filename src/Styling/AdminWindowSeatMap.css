@@ -1,3 +1,4 @@
+
 #AdminWindowSeatMapMainContentDiv
 {
     background-color: white;
@@ -61,19 +62,27 @@
         font-size: 14px;
         padding: 5px;
         background-color: rgb(35,41,54);
-        color: white;
         cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     
 }
 
+.FloorButtonClick,.FloorButton,.FloorButtonClick:hover,.FloorButtonClick:focus,.FloorButtonClick:active,.FloorButton:hover,.FloorButton:focus,.FloorButton:active
+{
+    color: white !important;
+}
 .FloorButton
 {
 
         font-size: 14px;
         padding: 5px;
         background-color: rgb(35,41,54,0.5);
-        color: white;
         cursor: pointer;
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
 
 }

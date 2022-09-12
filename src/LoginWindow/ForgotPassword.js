@@ -1,20 +1,18 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
 
 // import "../Styling/LoginWindow.css";
 // import "bootstrap/dist/css/bootstrap.min.css";
-import LoginDiv from "./Login"
 import { faMobile } from "@fortawesome/free-solid-svg-icons";
 import {  faEnvelope} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import AdmimOtpWindow from "./Otp";
+import { useNavigate } from "react-router-dom";
 
 
 function AdminForgotPassword()
 {
    
 
-
+  const navigate = useNavigate();
 
     return (
         <div  id = "dminForgotPasswordReturnDiv" className="LoginDiv">
@@ -66,29 +64,21 @@ function AdminForgotPassword()
               type="button"
               id="LoginDivLoginButton"
               className="btn btn-secondary LoginDivInsideDiv"
-              onClick={RenderAdminOtpPage}
+              onClick={()=>RenderAdminOtpPage(navigate)}
               
             >
               Verify
             </button>
-            <h6 id="BackToLogin" onClick = {BackToLoginPage} >Back To Login</h6>
+            <h6 id="BackToLogin" onClick = {()=>navigate("/admin_login")} >Back To Login</h6>
             
           </div>
         </div>
       );
 }
 
-function BackToLoginPage() {
-    console.log("hello from forgot password");
-    const EntryAnimationReturningLoginDiv = ReactDOM.createRoot(document.getElementById("EntryAnimationReturningLoginDiv"));
-    EntryAnimationReturningLoginDiv.render(<LoginDiv />);
-    
-  }
-  function RenderAdminOtpPage() {
-    console.log("hello from forgot password");
-    const EntryAnimationReturningLoginDiv = ReactDOM.createRoot(document.getElementById("EntryAnimationReturningLoginDiv"));
-    EntryAnimationReturningLoginDiv.render(<AdmimOtpWindow />);
-    
-  }
+
+function RenderAdminOtpPage(navigate) {
+  navigate("otp_verify");    
+}
 
 export default AdminForgotPassword;

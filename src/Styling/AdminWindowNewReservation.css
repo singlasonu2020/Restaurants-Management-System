@@ -1,3 +1,5 @@
+
+
 .NewReservation {
     width: 100%;
     bottom: 0;
@@ -239,6 +241,16 @@ input[type=checkbox] {
     gap: 25px;
 }
 
+.InActiveButton
+{
+    cursor:text !important;
+    text-decoration: line-through;
+}
+
+.InActiveButton:hover
+{
+    color:rgba(255, 255, 255, 0.5) !important;
+}
 
 @media screen and (max-width: 800px) {
     .NewReservationBottons
@@ -563,4 +575,21 @@ input[type=checkbox] {
     max-height: 80vh;
     overflow: auto;
     background-color: rgb(176 181 193);
+}
+
+.PaymentRequestButton
+{
+    margin: 10px 0;
+    padding: 5px 10px;
+    float: right;
+    border-radius: 5px;
+    background: rgb(35, 41, 54,0.8);
+    color: white;
+    cursor: pointer;
+}
+
+.PaymentRequestButton:hover
+{
+    background: rgb(35, 41, 54);
+
 }

@@ -1,16 +1,16 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
 // import "../Styling/LoginWindow.css";
 // import "bootstrap/dist/css/bootstrap.min.css";
-import LoginDiv from "./Login";
-import EnterNewPasswordPage from "./EnterNewPassword";
 import { faMobile } from "@fortawesome/free-solid-svg-icons";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useNavigate } from "react-router-dom";
+
 
 function AdmimOtpWindow() {
 
-  
+  const navigate = useNavigate();
+
 
   return (
     <div className="LoginDiv">
@@ -56,11 +56,11 @@ function AdmimOtpWindow() {
           type="button"
           id="LoginDivLoginButton"
           className="btn btn-secondary LoginDivInsideDiv"
-          onClick={RenderEnterNewPasswordPage}
+          onClick={()=>RenderEnterNewPasswordPage(navigate)}
         >
           Validity
         </button>
-        <h6 id="BackToLoginInOtp" onClick={BackToLoginPage}>
+        <h6 id="BackToLoginInOtp" onClick={()=>navigate("/admin_login")}>
           Back To Login
         </h6>
       </div>
@@ -68,17 +68,9 @@ function AdmimOtpWindow() {
   );
 }
 
-function BackToLoginPage() {
-  console.log("hello from forgot password");
-  const EntryAnimationReturningLoginDiv = ReactDOM.createRoot(document.getElementById("EntryAnimationReturningLoginDiv"));
-  EntryAnimationReturningLoginDiv.render(<LoginDiv />);
-  
-}
 
-function RenderEnterNewPasswordPage() {
-  console.log("hello from forgot password");
-  const EntryAnimationReturningLoginDiv = ReactDOM.createRoot(document.getElementById("EntryAnimationReturningLoginDiv"));
-  EntryAnimationReturningLoginDiv.render(<EnterNewPasswordPage />);
+function RenderEnterNewPasswordPage(navigate) {
+  navigate("enter_new_password");
   
 }
 export default AdmimOtpWindow;

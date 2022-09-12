@@ -1,90 +1,63 @@
-import React, { useState,useEffect  } from "react";
+import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom/client";
 import TimeLineView from "./TimeLineView";
 import CellView from "./CellView";
 import Header from "./ReservationListHeader";
 import MapView from "./MapView";
 import "../Styling/AdminWindowReservationList.css";
+import { Outlet } from "react-router-dom";
+import  ReservationListData from "./UseContext";
+
+
 
 function ReservationList() {
 
-    function CheckWidth()
-    {
-         if(window.innerWidth<=450)
-        {
-            return["CellView"];
-        }
-        else if(window.innerWidth<="1200")
-        {
-            return["TimeLine"];
-        }
-        else
-        {
-            return ["TimeLine","CellView"]
-        }
-    }
+   
     const TodayDate = new Date();
-    const [POS, SetPOS] = useState(CheckWidth());
-    const [date,SetDate]=useState(TodayDate);
+    const [date, SetDate] = useState(TodayDate);
+
+    const user = {Date:date,SetDate:SetDate};
     
 
-       
     return (
-        <div className="ReservationListReturnDiv">
-            <div className="ReservationListNavBar">
-                <Header Refresh={RefreshView} SetPOS={SetPOS} POS={POS} Date={date} SetDate={SetDate} />
-            </div>
+        <ReservationListData.Provider value={user}>
+            <div className="ReservationListReturnDiv">
+                <div className="ReservationListNavBar">
+                    <Header />
+                </div>
 
-            <div id="ReservationListMainContainer" className="ReservationListMainContainer">
-            {RenderComponent(POS,date)}
+                <div id="ReservationListMainContainer" className="ReservationListMainContainer">
+                    <Outlet />
+                </div>
             </div>
-        </div>
+        </ReservationListData.Provider>
+
     )
 }
 
-function RefreshView(POS) {
-
-   const root = ReactDOM.createRoot(document.getElementById("ReservationListMainContainer"));
-   root.render(RenderComponent(POS));
-    
-}
-
-function RenderComponent(POS,date) {
-
-    return POS.map((item)=>{
-        if(item=="TimeLine")
-        return<TimeLine Date={date}/>
-        else if(item=="CellView")
-        return<CellViewINSIDE Date={date}/>
-        else
-        return<TempMapView Date={date}/>
-
-    });
-}
-
-function TimeLine(data) {
+function TimeLine() {
     return (
-        <div id="TimeLineView" className="ReservationListTimeView" ><TimeLineView Date={data.Date}/></div>
+        <div id="TimeLineView" className="ReservationListTimeView" ><TimeLineView /></div>
     )
 }
 
-function TempMapView(data)
-{
+function TempMapView() {
+    console.log("HELLO");
     return (
         <div id="MapLineView" className="ReservationListMapView" >
-            <MapView  Date={data.Date}/>
+            <MapView />
         </div>
     )
 }
 
-function CellViewINSIDE(data) {
+function CellViewINSIDE() {
 
     return (
         <div id="ReservationListCellView" className="ReservationListCellView">
             <div className="LatestReservationHeading">Reservations List</div>
 
             <div className="ReservationListCells">
-                <CellView  Date={data.Date}/>
+                <CellView />
             </div>
 
         </div>
@@ -92,4 +65,4 @@ function CellViewINSIDE(data) {
 }
 
 
-export default ReservationList;
+export  {ReservationList,TimeLine,TempMapView,CellViewINSIDE};

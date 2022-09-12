@@ -24,21 +24,18 @@ function AddNewTableForm(data) {
             <div id="AddTableFormTableNumber" class="input-group mb-3" >
                 <div class="input-group-prepend AdminWindowCustomFormInputDivLabel" >
                     <span class="input-group-text AdminWindowCustomFormInputDivLabelTitle FullAddFloor" id="inputGroup-sizing-default">Table Number</span>
-                    <span class="input-group-text AdminWindowCustomFormInputDivLabelTitle ShortAddFloor" id="inputGroup-sizing-default">Table No.</span>
                 </div>
                 <input id="AddTableFormTableNumberInput" disabled={data.disabled} type="number" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default" min="0" value={data.TableNumber}></input>
             </div>
             <div id="AddTableFormFloorNumber" class="input-group mb-3" >
                 <div class="input-group-prepend AdminWindowCustomFormInputDivLabel" >
                     <span class="input-group-text AdminWindowCustomFormInputDivLabelTitle FullAddFloor" id="inputGroup-sizing-default" >Floor Number</span>
-                    <span class="input-group-text AdminWindowCustomFormInputDivLabelTitle ShortAddFloor" id="inputGroup-sizing-default" >Floor No.</span>
                 </div>
                 <input id="AddTableFormFloorNumberInput" type="number" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default"  min={data.MinFloor} max={data.MaxFloor} ></input>
             </div>
             <div id="AddTableFormFloorNumber" class="input-group mb-3">
                 <div class="input-group-prepend AdminWindowCustomFormInputDivLabel" >
                     <span class="input-group-text AdminWindowCustomFormInputDivLabelTitle FullAddFloor" id="inputGroup-sizing-default" >Seating Capacity</span>
-                    <span class="input-group-text AdminWindowCustomFormInputDivLabelTitle ShortAddFloor" id="inputGroup-sizing-default" >Seating CAP</span>
 
                 </div>
                 <input id="AddTableFormNumberOfSeatInput" type="number" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default"  min="0" max="20" ></input>

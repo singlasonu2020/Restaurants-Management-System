@@ -1,4 +1,17 @@
-#EntryAnimationReturningDiv 
+.ForBackGroundImage
+{
+  background-image: url("../image/LoginPageBackgroundImage.jpg");
+  background-repeat : no-repeat;
+  background-size: cover;
+  position: fixed;
+  top : 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+
+.EntryAnimationReturningDiv 
 {
     background:linear-gradient(-90deg, rgba(254, 219, 57, 0.08) 1px, transparent 1px),linear-gradient(rgba(254, 219, 57, 0.08) 1px, transparent 1px),rgb(35, 41, 54);
     background-size:10px 10px,10px 10px;
@@ -32,9 +45,34 @@
       margin-top:3%;
   }
 
-  #EntryAnimationReturningDivRestaurantName
+  .EntryAnimationReturningDivRestaurantName
   {
     font-size:24px;
+  }
+
+
+  @keyframes LetterOpacity
+  {
+    from {opacity:1}
+    to {opacity:0}
+  }
+
+  @keyframes ContainerOpacity
+  {
+    from {background-color:rgba(35, 41, 54,1)}
+    to {background-color:rgba(35, 41, 54,0.7)}
+  }
+
+  @keyframes OpacityLogin
+  {
+    from {opacity:0}
+    to {opacity:1}
+  }
+
+  #EntryAnimationReturningLoginDiv
+  {
+    animation-name: OpacityLogin;
+    animation-duration: 1s;
   }
 
 /* -------------------------------------------------------- */
@@ -47,7 +85,7 @@
         margin-top:3%;
     }
   
-    #EntryAnimationReturningDivRestaurantName
+    .EntryAnimationReturningDivRestaurantName
     {
       font-size:18px;
     }

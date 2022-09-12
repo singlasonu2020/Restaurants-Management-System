@@ -1,29 +1,29 @@
-import React, { useEffect } from 'react';
-import ReactDOM from 'react-dom/client';
+import React, { useRef } from 'react';
+import { Outlet } from "react-router-dom";
 import "../Styling/AdminWindowHome.css";
 import NavBar from './NavBar';
+
+import {SideBar} from "../AdminWindowSideBar/SideBar";
+
+
 
 
 
 
 function AdminWindow() {
-    document.getElementById("root").style.backgroundImage = "none";
-    document.getElementById("root").style.backgroundColor = "rgb(243,243,244)";
 
-     useEffect(()=>{
-        AdminWindowReadyToRender();
 
-    });
+    const NavBarRef = useRef();
 
-    return (
     
-       
-        <div id="AdminWindowReturnDiv">
+    return (
 
 
-            <div><div id='AdminWindowHeader' ></div></div>
-            <div id='AdminWindowSideBar'></div>
-            <div id= "AdminWindowContaintBar"></div>
+        <div style={{backgroundColor: "rgb(243,243,244)", position:"fixed",top:"0",bottom:"0",right:"0" ,left:"0", overflowY:"auto"}}>
+
+            <NavBar NavBarRef={NavBarRef}/>
+            <SideBar NavBarRef={NavBarRef}/>
+            <div id="AdminWindowContaintBar"><Outlet /></div>
 
         </div>
 
@@ -32,12 +32,5 @@ function AdminWindow() {
 
 }
 
-function AdminWindowReadyToRender() {
 
-   
-    const root = ReactDOM.createRoot(document.getElementById('AdminWindowHeader'));
-    root.render(
-        <NavBar />
-    );
-}
 export default AdminWindow;

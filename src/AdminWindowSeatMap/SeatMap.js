@@ -8,6 +8,9 @@ import AddNewTable from "./AddTable";
 import AddFloor from "./AddFloor";
 // import "../Styling/AdminWindowWorkingTime.css"
 import "../Styling/AdminWindowSeatMap.css"
+import { useSearchParams } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
+
 
 
 
@@ -21,9 +24,12 @@ var FloorOption = [1, 2];
 
 function SeatMap() {
 
+    const [searchParams] = useSearchParams();
+    const FloorId = searchParams.get("floorId");
+    const navigate = useNavigate();
 
     useEffect(() => {
-        document.getElementById("Floor-1").click();
+        FloorTableRender(FloorId);
 
     })
 
@@ -38,7 +44,7 @@ function SeatMap() {
 
             <div id="AdminWindowSeatMapMainContentDiv" >
                 <div id="AdminWindowSeatMapEditsOption">
-                    <div className="SveButtonDefaultWorkingTime AdminWindowEditMapButton AdminWindowSaveButtonCss"  id="AdminWindowEditMapButton" onClick={EditMap}>Edit</div>
+                    <div className="SveButtonDefaultWorkingTime AdminWindowEditMapButton AdminWindowSaveButtonCss"  id="AdminWindowEditMapButton" onClick={()=>{EditMap(FloorId,navigate)}}>Edit</div>
                     <div className="SveButtonDefaultWorkingTime AdminWindowSaveMapButton AdminWindowSaveButtonCss" id="AdminWindowSaveMapButton" onClick={SaveMap}>Save</div>
                     <div className="SveButtonDefaultWorkingTime AdminWindowSaveMapButton AdminWindowSaveButtonCss" id="AdminWindowAddTableMapButton" onClick={AddTableInMap}>Add Table</div>
                     <div className="SveButtonDefaultWorkingTime AdminWindowSaveMapButton AdminWindowSaveButtonCss" id="AdminWindowAddFloorMapButton" onClick={AddFloorInMap}>Add Floor</div>
@@ -47,7 +53,7 @@ function SeatMap() {
 
 
                 <div id="AdminWindowMapFloorOption" >
-                    {FloorOptionFuntion()}
+                    {FloorOptionFuntion(FloorId)}
                 </div>
                 <div id="AdminWindowSeatMapMainContentDivMap" >
 
@@ -69,30 +75,12 @@ function SeatMap() {
     )
 }
 
-function FloorOptionFuntion() {
-    console.log("hello from Flooroption");
+function FloorOptionFuntion(FloorId) {
     const FloorOptionRender = [];
-    var StyleForFloorButton;
-
     FloorOption.forEach((item) => {
-        let ClassName = "";
-        if (item == FloorNumber) {
-
-            ClassName="FloorButtonClick";
-          
-
-        }
-        else {
-            ClassName="FloorButton";
-         
-
-        }
-        FloorOptionRender.push(<div id={`Floor-${item}`} className={ClassName}  onClick={(event) => { OnClickFloorButton(event) }}>
-            Floor {item}{DeleteFloorIcon(item)}
-        </div>)
+        FloorOptionRender.push(<NavLink  to={{pathname: "/admin_window/seat_map", search: `?floorId=${item}`,}} className={ FloorId==item ? 'FloorButtonClick' : 'FloorButton'}>Floor {item}{DeleteFloorIcon(item)}</NavLink>)
     });
 
-    console.log(FloorOptionRender);
     return FloorOptionRender;
 }
 function DeleteFloorIcon(FloorNumber)
@@ -109,14 +97,10 @@ function DeleteFloorIcon(FloorNumber)
 
 function DeleteFloorFunction(TempFloorNumberOnDeleteFuntion)
 {
-    console.log(TempFloorNumberOnDeleteFuntion);
     FloorOption.forEach((item,i)=>{
         if(item==TempFloorNumberOnDeleteFuntion)
         {
-            FloorOption.splice(i,1);
-            console.log(FloorOption);
-            const FloorOptionDiv = ReactDOM.createRoot(document.getElementById("AdminWindowMapFloorOption"));
-            FloorOptionDiv.render(<tbody style={{ display: "flex" }}>{FloorOptionFuntion()}</tbody>);
+            FloorOption.splice(i,1);           
             return;
 
 
@@ -126,12 +110,12 @@ function DeleteFloorFunction(TempFloorNumberOnDeleteFuntion)
 
 }
 
-function EditMap() {
+function EditMap(FloorId,navigate) {
 
     EditMapValue = true;
-    const FloorOptionDiv = ReactDOM.createRoot(document.getElementById("AdminWindowMapFloorOption"));
-    FloorOptionDiv.render(<tbody style={{ display: "flex" }}>{FloorOptionFuntion()}</tbody>);
-    document.getElementById(`Floor-${FloorNumber}`).click();
+    // const FloorOptionDiv = ReactDOM.createRoot(document.getElementById("AdminWindowMapFloorOption"));
+    // FloorOptionDiv.render(<tbody style={{ display: "flex" }}>{FloorOptionFuntion()}</tbody>);
+    navigate({pathname:"/admin_window/seat_map", search: `?floorId=${FloorId}`})
     document.getElementsByClassName("AdminWindowEditMapButton")[0].style.display="none";
     document.getElementsByClassName("AdminWindowSaveMapButton")[0].style.display="block";
     document.getElementsByClassName("AdminWindowSaveMapButton")[1].style.display="block";
@@ -160,10 +144,9 @@ function RenderNewFloor(NewFloorNumber) {
 
 
 
-    FloorOption.push(NewFloorNumber);
+    FloorOption.push(NewFloorNumber*1);
+    console.log(FloorOption);
     FloorOption.sort();
-    const FloorOptionDiv = ReactDOM.createRoot(document.getElementById("AdminWindowMapFloorOption"));
-    FloorOptionDiv.render(<tbody style={{ display: "flex" }}>{FloorOptionFuntion()}</tbody>);
     const root = ReactDOM.createRoot(document.getElementById("UpperDiv"));
     root.render(<div />);
 
@@ -231,7 +214,6 @@ function RenderNewTableFuction(NewFloorNumber, NewTableNumber, NewNumberOfSeat) 
         return
     }
 
-    document.getElementById(`Floor-${FloorNumber}`).click();
     const root = ReactDOM.createRoot(document.getElementById("UpperDiv"));
     root.render(<div />);
 
@@ -239,9 +221,6 @@ function RenderNewTableFuction(NewFloorNumber, NewTableNumber, NewNumberOfSeat) 
 
 function SaveMap() {
     EditMapValue = false;
-    const FloorOptionDiv = ReactDOM.createRoot(document.getElementById("AdminWindowMapFloorOption"));
-    FloorOptionDiv.render(<tbody style={{ display: "flex" }}>{FloorOptionFuntion()}</tbody>);
-    document.getElementById(`Floor-${FloorNumber}`).click();   
     document.getElementsByClassName("AdminWindowEditMapButton")[0].style.display="block";
     document.getElementsByClassName("AdminWindowSaveMapButton")[0].style.display="none";
     document.getElementsByClassName("AdminWindowSaveMapButton")[1].style.display="none";
@@ -413,26 +392,6 @@ function drag_over(event) {
 
 }
 
-function OnClickFloorButton(event) {
-
-    var id = event.target.id;
-    var idFloorNumber = id.substring(6);
-    FloorOption.forEach((item) => {
-        if (item == idFloorNumber) {
-            document.getElementById(`Floor-${item}`).style.backgroundColor = "rgb(35,41,54)";
-
-        }
-        else {
-            document.getElementById(`Floor-${item}`).style.backgroundColor = "rgb(35,41,54,0.5)";
-
-        }
-
-    })
-
-    FloorTableRender(idFloorNumber);
-    FloorNumber = idFloorNumber;
-
-}
 
 
 

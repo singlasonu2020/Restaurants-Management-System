@@ -1,19 +1,33 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import ReactDOM from "react-dom/client";
 import "../Styling/AdminWindowNewReservation.css";
 import DatePicker from "../DatePicker/DatePick";
-import { faCalendarAlt, faDollyBox } from "@fortawesome/free-solid-svg-icons";
+import { faCalendarAlt } from "@fortawesome/free-solid-svg-icons";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { faPhone } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { getCountries, getStates } from "country-state-picker";
 import ReactFlagsSelect from "react-flags-select";
+import NewReservationData from "./UseContext";
+
 
 
 
 
 function ClientDetails() {
+
+    const data = useContext(NewReservationData);
+
+    const SetData=()=>{
+        return(
+            {
+            }
+        )
+    }
+
+    data.SetReservatioDataFunction(SetData);
+
 
     const [dob, SetDob] = useState();
     const [country, SetCountry] = useState("in");

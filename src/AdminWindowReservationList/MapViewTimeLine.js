@@ -37,7 +37,7 @@ function MapViewTimeLine(data) {
         Slider.current.style.left=`${((MinValue.current.value)/(MinValue.current.max))*100}%`;
         Slider.current.style.right=`${100-(((MaxValue.current.value)/(MaxValue.current.max))*100)}%`;
 
-    })
+    },[])
 
 
     return (

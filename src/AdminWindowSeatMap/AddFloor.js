@@ -21,6 +21,7 @@ class AddFloor extends React.Component {
         function AddNewFloor(AddrNewFloorFunction)
         {
             let NewFloorNumberInput = document.getElementById("AddFloorInput").value;
+            console.log(NewFloorNumberInput);
             AddrNewFloorFunction(NewFloorNumberInput);
         }
 
@@ -37,7 +38,6 @@ class AddFloor extends React.Component {
                     <div id="AddFloor" class="input-group mb-3" style={{ width: "100%", postion: "absolute" }}>
                         <div class="input-group-prepend AdminWindowCustomFormInputDivLabel">
                             <span class="input-group-text AdminWindowCustomFormInputDivLabelTitle FullAddFloor" id="inputGroup-sizing-default" >Floor Number</span>
-                            <span class="input-group-text AdminWindowCustomFormInputDivLabelTitle ShortAddFloor " id="inputGroup-sizing-default" >Floor No.</span>
                         </div>
                         <input id="AddFloorInput" type="number" class="form-control" aria-label="Default" aria-describedby="inputGroup-sizing-default"></input>
                     </div>

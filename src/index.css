@@ -7,18 +7,17 @@ body {
   
 }
 
-#root
-{
-  background-image: url("../public/img/LoginPageBackgroundImage.jpg");
-  background-repeat : no-repeat;
-  background-size: cover;
-  position: fixed;
-  top : 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  overflow-y:auto;
+
+a{
+  text-decoration: none !important; 
+  color: inherit !important ;
 }
+
+a:hover, a:focus, a:active{
+  text-decoration: none !important; 
+  color: currentColor !important;
+}
+
 
 
 

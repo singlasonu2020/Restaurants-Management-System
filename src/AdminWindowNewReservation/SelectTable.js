@@ -1,17 +1,31 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useContext } from "react";
 import ReactDOM from "react-dom/client";
 import "../Styling/AdminWindowNewReservation.css";
-import DatePicker from "../DatePicker/DatePick";
-import { faAngleDown, faTimes, faWindowClose } from "@fortawesome/free-solid-svg-icons";
+import {faWindowClose } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import MutiDropDown from "./MutiDropDown";
 import MapView from "../AdminWindowReservationList/MapView";
-import { Sa } from "react-flags-select";
 import TimeLine from "../AdminWindowReservationList/TimeLineView"
+import NewReservationData from "./UseContext";
 
 
 
-function SelectTable(data) {
+
+function SelectTable() {
+
+    const data = useContext(NewReservationData);
+
+
+    const SetData=()=>{
+        return(
+            {
+            }
+        )
+    }
+
+    data.SetReservatioDataFunction(SetData);
+
+
 
 
     const ReservationData = data.ReservationData;
@@ -21,7 +35,6 @@ function SelectTable(data) {
         else
             return;
     }
-
 
     let fun;
 
@@ -58,11 +71,13 @@ function SelectTable(data) {
         const SetFun=(f)=>{
             fun=f;
         }
-        const FromMin = ReservationData.FromTime.substring(0,2)*60+ReservationData.FromTime.substring(3)*1;
-        const ToMin = ReservationData.ToTime.substring(0,2)*60+ReservationData.ToTime.substring(3)*1;
-        console.log(FromMin);
-        console.log(ToMin);
-        if (ReservationData != undefined) {
+      
+        if (ReservationData != undefined && ReservationData.FromTime!="" && ReservationData.ToTime!="" ) {
+
+            console.log(ReservationData.FromTime);
+            const FromMin = ReservationData.FromTime.substring(0,2)*60+ReservationData.FromTime.substring(3)*1;
+            const ToMin = ReservationData.ToTime.substring(0,2)*60+ReservationData.ToTime.substring(3)*1;
+
             return (
                 <div>
                     <div className="SelectTableReservationData">
@@ -83,13 +98,13 @@ function SelectTable(data) {
                 </div>
             );
         }
+
         else {
             return (<div className="PleaseFirstEnter">Please First Enter Reservation Details</div>)
         }
 
 
     }
-
 
     return (
 
@@ -145,14 +160,11 @@ function PosiibleOptionComponent(SetSelectedTableData) {
     )
 }
 
-
 function ClickOnCanCell()
 {
     const PossibleOptionTemp = ReactDOM.createRoot(document.getElementById("UpperUpperDiv"));
     PossibleOptionTemp.render(<div></div>);
 }
-
-
 
 function ClickOnTimeLineView(SelectedTableData)
 {

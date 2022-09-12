@@ -10,20 +10,30 @@ function TableView(data) {
     const EndTime = Timing.EndTime;
     const gridTemplateColumnsValueArray = ["160px"];
 
-    console.log(data.SelectedTableData);
     const CheckTableSelectEd = ()=>{
-        for (let index = 0; index < data.SelectedTableData.length; index++) {
-            const element = data.SelectedTableData[index];
-            
-            if(element.TableNumber==data.Data.TBN)
-            {
-                return "rgb(19 111 12 / 30%)";
 
+        if(data.SelectedTableData!=undefined)
+        {
+            for (let index = 0; index < data.SelectedTableData.length; index++) {
+                const element = data.SelectedTableData[index];
+                
+                if(element.TableNumber==data.Data.TBN)
+                {
+                    return "rgb(19 111 12 / 30%)";
+    
+                }
+                
             }
-            
+
+            return data.color;
+
+        }
+       
+        else
+        {
+            return data.color;
         }
 
-        return data.color;
         
     }
     

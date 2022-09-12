@@ -1,20 +1,18 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
 import "../Styling/LoginWindow.css";
-import AdminForgotPassword from "./ForgotPassword"
 import "bootstrap/dist/css/bootstrap.min.css";
 import { faLock } from "@fortawesome/free-solid-svg-icons";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
 import { faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import AdminWindow from "../AdminWindowHome/Home";
+import { useNavigate } from "react-router-dom";
+
 
 
 
 
 function LoginDiv() {
-  
-
+   const navigate =useNavigate();
   return (
     <div id="LoginDiv" className="LoginDiv">
       <h2 id="LoginDivHeading" className="HeadingOfLoginDiv">Admin Login</h2>
@@ -58,21 +56,21 @@ function LoginDiv() {
           type="button"
           id="LoginDivLoginButton"
           className="btn btn-secondary LoginDivInsideDiv"
-          onClick={AdminLoginButton}
+          onClick={()=>{AdminLoginButton(navigate)}}
         >
-          Login
+         Login
+          
         </button>
-        <h6 id="LoginDivForgotButton" onClick = {RenderForgotAdminPasswordPage}>Forgot Password</h6>
+      
+        <h6 id="LoginDivForgotButton" onClick = {()=>{RenderForgotAdminPasswordPage(navigate)}}>Forgot Password</h6>
       </div>
+
     </div>
   );
 }
 
-function RenderForgotAdminPasswordPage() {
-  console.log("hello from forgot password");
-  const EntryAnimationReturningLoginDiv = ReactDOM.createRoot(document.getElementById("EntryAnimationReturningLoginDiv"));
-  EntryAnimationReturningLoginDiv.render(<AdminForgotPassword />);
-  
+function RenderForgotAdminPasswordPage(navigate) {
+  navigate("forgot_password");
 }
 
 function LoginDivShowPassword() {
@@ -90,9 +88,8 @@ function LoginDivShowPassword() {
   }
 }
 
-function AdminLoginButton(){
-  const EntryAnimationReturningLoginDiv = ReactDOM.createRoot(document.getElementById("root"));
-  EntryAnimationReturningLoginDiv.render(<AdminWindow />);
+function AdminLoginButton(navigate){
+  navigate("/admin_window");
   
 }
 export default LoginDiv;

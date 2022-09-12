@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef,useContext  } from "react";
 import ReactDOM from "react-dom/client";
 import "../Styling/AdminWindowNewReservation.css";
 import DatePicker from "../DatePicker/DatePick";
@@ -6,10 +6,13 @@ import { faCalendarAlt } from "@fortawesome/free-solid-svg-icons";
 import { faClock } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import InputClock from "../TimeInputClock/InputClock";
+import NewReservationData from "./UseContext";
 
+function ReservationDetails() {
 
+    const data = useContext(NewReservationData);
 
-function ReservationDetails(data) {
+    
     const [date, SetDate] = useState();
     const FromTime = useRef();
     const ToTime = useRef();

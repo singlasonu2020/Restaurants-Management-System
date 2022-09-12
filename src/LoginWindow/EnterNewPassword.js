@@ -1,15 +1,16 @@
 import React from "react";
-import ReactDOM from "react-dom/client";
 // import "../Styling/LoginWindow.css";
 // import "bootstrap/dist/css/bootstrap.min.css";
-import LoginDiv from "./Login";
-import AdminNewPasswordUpdateSuccessfully from "./PasswordUpdateSuccessfully";
 import { faLock } from "@fortawesome/free-solid-svg-icons";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
 import { faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useNavigate } from "react-router-dom";
+
 
 function EnterNewPasswordPage() {
+
+  const navigate = useNavigate();
 
     return (
       <div id="LoginDiv" className="LoginDiv" >
@@ -59,11 +60,11 @@ function EnterNewPasswordPage() {
             type="button"
             id="LoginDivLoginButton"
             className="btn btn-secondary LoginDivInsideDiv"
-            onClick={CheckAndRender}
+            onClick={()=>CheckAndRender(navigate)}
           >
             Submit
           </button>
-          <h6 id="BackToLoginInNewPassword" onClick={BackToLoginPage}>
+          <h6 id="BackToLoginInNewPassword"  onClick={()=>navigate("/admin_login")}>
             Back To Login
           </h6>
         </div>
@@ -71,12 +72,7 @@ function EnterNewPasswordPage() {
     );
   }
   
-  function BackToLoginPage() {
-    console.log("hello from forgot password");
-    const EntryAnimationReturningLoginDiv = ReactDOM.createRoot(document.getElementById("EntryAnimationReturningLoginDiv"));
-    EntryAnimationReturningLoginDiv.render(<LoginDiv />);
-    
-  }
+ 
   
 
 
@@ -98,10 +94,9 @@ function EnterNewPasswordPage() {
     }
   }
 
-  function CheckAndRender()
+  function CheckAndRender(navigate)
   {
-    const EntryAnimationReturningLoginDiv = ReactDOM.createRoot(document.getElementById("EntryAnimationReturningLoginDiv"));
-    EntryAnimationReturningLoginDiv.render(<AdminNewPasswordUpdateSuccessfully />);
+    navigate("status");
   }
 
   export default EnterNewPasswordPage;

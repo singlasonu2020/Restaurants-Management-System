@@ -1,19 +1,16 @@
-import React, { useEffect } from "react";
-import ReactDOM from "react-dom/client";
+import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faInfoCircle } from "@fortawesome/free-solid-svg-icons";
 import { faCheck } from "@fortawesome/free-solid-svg-icons";
 import { faExclamationTriangle  } from "@fortawesome/free-solid-svg-icons";
-import WorkingTimeDefault from "../AdminWindowDefaultWorkingTime/DefaultWorkingTime";
-import WorkingTimeCustom from "../AdminWindowCustomWorkingTime/CustomWorkingTime"
 import "../Styling/AdminWindowWorkingTime.css"
+import { Outlet,NavLink} from "react-router-dom";
+
 
 
 
 function WorkingTime() {
-    useEffect(()=>{
-        document.getElementById("AdminWindowWorkingTimeReturningDivMainDicButtonDivDefault").click();
-    })
+
 
     return (
         <div id="AdminWindowWorkingTimeReturningDiv" >
@@ -27,11 +24,12 @@ function WorkingTime() {
 
             <div id="AdminWindowWorkingTimeReturningDivMainDic" >
                 <div id="AdminWindowWorkingTimeReturningDivMainDicButtonDiv">
-                    <div id="AdminWindowWorkingTimeReturningDivMainDicButtonDivDefault" className="AdminWindowWorkingTimeReturningDivMainDicButtonDivDefault" onClick={OnClickOnDefaultWorkingTime}>Default</div>
-                    <div id="AdminWindowWorkingTimeReturningDivMainDicButtonDivCustom"  className="AdminWindowWorkingTimeReturningDivMainDicButtonDivCustom" onClick={OnClickOnCustomWorkingTime}>Custom</div>
+                    <NavLink to="/admin_window/working_time/default"  className={({ isActive }) =>isActive ? 'AdminWindowWorkingTimeReturningDivMainDicButtonDivCustom isActive_workingTime' : 'AdminWindowWorkingTimeReturningDivMainDicButtonDivCustom'}  >Default</NavLink>
+                    <NavLink to="/admin_window/working_time/custom" className={({ isActive }) =>isActive ? 'AdminWindowWorkingTimeReturningDivMainDicButtonDivCustom isActive_workingTime' : 'AdminWindowWorkingTimeReturningDivMainDicButtonDivCustom'}  >Custom </NavLink>
+
                 </div>
                 <div id="AdminWindowWorkingTimeReturningDivMainDivContaint"   className="AdminWindowWorkingTimeReturningDivMainDivContaint" >
-                   
+                  <Outlet />
                 </div>
             </div>
         </div>
@@ -43,20 +41,5 @@ function WorkingTime() {
 
 
 
-function OnClickOnDefaultWorkingTime() {
-
-    const WorkingTimeContaint = ReactDOM.createRoot(document.getElementById("AdminWindowWorkingTimeReturningDivMainDivContaint"));
-    WorkingTimeContaint.render(<WorkingTimeDefault/>)
-    document.getElementById("AdminWindowWorkingTimeReturningDivMainDicButtonDivDefault").style.backgroundColor="white";
-    document.getElementById("AdminWindowWorkingTimeReturningDivMainDicButtonDivCustom").style.backgroundColor="";
-    
-
-}
-function OnClickOnCustomWorkingTime() {
-    document.getElementById("AdminWindowWorkingTimeReturningDivMainDicButtonDivDefault").style.backgroundColor="";
-    document.getElementById("AdminWindowWorkingTimeReturningDivMainDicButtonDivCustom").style.backgroundColor="white";
-    const WorkingTimeContaint = ReactDOM.createRoot(document.getElementById("AdminWindowWorkingTimeReturningDivMainDivContaint"));
-    WorkingTimeContaint.render(<WorkingTimeCustom/>);
-}
 
 export default WorkingTime;
